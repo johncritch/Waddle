@@ -11,7 +11,7 @@ import SwiftUI
 struct BetterBeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainTabView()
         }
     }
 }

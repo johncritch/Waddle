@@ -11,6 +11,16 @@
 		62FCB1E22901EF57002A7D11 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCB1E12901EF57002A7D11 /* ContentView.swift */; };
 		62FCB1E42901EF58002A7D11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62FCB1E32901EF58002A7D11 /* Assets.xcassets */; };
 		62FCB1E72901EF58002A7D11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62FCB1E62901EF58002A7D11 /* Preview Assets.xcassets */; };
+		62FCB1F62901F00D002A7D11 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCB1F52901F00D002A7D11 /* FeedView.swift */; };
+		62FCB1F92901F0C0002A7D11 /* EventsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCB1F82901F0C0002A7D11 /* EventsRowView.swift */; };
+		62FCB1FC2901F528002A7D11 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCB1FB2901F528002A7D11 /* MainTabView.swift */; };
+		62FCB2022901F63C002A7D11 /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCB2012901F63C002A7D11 /* ExploreView.swift */; };
+		62FCB2042901F661002A7D11 /* MyEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCB2032901F661002A7D11 /* MyEventsView.swift */; };
+		62FCB2062901F684002A7D11 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCB2052901F684002A7D11 /* NotificationsView.swift */; };
+		62FCB2092901F775002A7D11 /* NewEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCB2082901F775002A7D11 /* NewEventView.swift */; };
+		62FCB20D2901FB42002A7D11 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCB20C2901FB42002A7D11 /* ProfileView.swift */; };
+		62FCB20F2901FFE1002A7D11 /* EventFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCB20E2901FFE1002A7D11 /* EventFilterViewModel.swift */; };
+		62FCB2142902036E002A7D11 /* UserRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCB2132902036E002A7D11 /* UserRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +29,16 @@
 		62FCB1E12901EF57002A7D11 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		62FCB1E32901EF58002A7D11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62FCB1E62901EF58002A7D11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		62FCB1F52901F00D002A7D11 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		62FCB1F82901F0C0002A7D11 /* EventsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsRowView.swift; sourceTree = "<group>"; };
+		62FCB1FB2901F528002A7D11 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		62FCB2012901F63C002A7D11 /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
+		62FCB2032901F661002A7D11 /* MyEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventsView.swift; sourceTree = "<group>"; };
+		62FCB2052901F684002A7D11 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
+		62FCB2082901F775002A7D11 /* NewEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventView.swift; sourceTree = "<group>"; };
+		62FCB20C2901FB42002A7D11 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		62FCB20E2901FFE1002A7D11 /* EventFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFilterViewModel.swift; sourceTree = "<group>"; };
+		62FCB2132902036E002A7D11 /* UserRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +71,10 @@
 		62FCB1DE2901EF57002A7D11 /* BetterBe */ = {
 			isa = PBXGroup;
 			children = (
+				62FCB1F02901EF81002A7D11 /* Core */,
+				62FCB1EF2901EF7E002A7D11 /* Service */,
+				62FCB1EE2901EF7B002A7D11 /* Model */,
+				62FCB1ED2901EF73002A7D11 /* Extensions */,
 				62FCB1DF2901EF57002A7D11 /* BetterBeApp.swift */,
 				62FCB1E12901EF57002A7D11 /* ContentView.swift */,
 				62FCB1E32901EF58002A7D11 /* Assets.xcassets */,
@@ -65,6 +89,172 @@
 				62FCB1E62901EF58002A7D11 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		62FCB1ED2901EF73002A7D11 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		62FCB1EE2901EF7B002A7D11 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		62FCB1EF2901EF7E002A7D11 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		62FCB1F02901EF81002A7D11 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				62FCB1F12901EF96002A7D11 /* Components */,
+				62FCB2072901F761002A7D11 /* NewEvent */,
+				62FCB2002901F619002A7D11 /* Profile */,
+				62FCB1FF2901F5F9002A7D11 /* Explore */,
+				62FCB1FE2901F5F7002A7D11 /* MyEvents */,
+				62FCB1FD2901F5E8002A7D11 /* Notifcations */,
+				62FCB1FA2901F515002A7D11 /* MainTab */,
+				62FCB1F22901EFAD002A7D11 /* Feed */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		62FCB1F12901EF96002A7D11 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				62FCB2122902035D002A7D11 /* Users */,
+				62FCB1F72901F07B002A7D11 /* Events */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		62FCB1F22901EFAD002A7D11 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				62FCB1F32901EFEB002A7D11 /* ViewModels */,
+				62FCB1F42901EFF5002A7D11 /* View */,
+			);
+			name = Feed;
+			sourceTree = "<group>";
+		};
+		62FCB1F32901EFEB002A7D11 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		62FCB1F42901EFF5002A7D11 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				62FCB1F52901F00D002A7D11 /* FeedView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		62FCB1F72901F07B002A7D11 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				62FCB1F82901F0C0002A7D11 /* EventsRowView.swift */,
+			);
+			name = Events;
+			sourceTree = "<group>";
+		};
+		62FCB1FA2901F515002A7D11 /* MainTab */ = {
+			isa = PBXGroup;
+			children = (
+				62FCB1FB2901F528002A7D11 /* MainTabView.swift */,
+			);
+			name = MainTab;
+			sourceTree = "<group>";
+		};
+		62FCB1FD2901F5E8002A7D11 /* Notifcations */ = {
+			isa = PBXGroup;
+			children = (
+				62FCB2052901F684002A7D11 /* NotificationsView.swift */,
+			);
+			name = Notifcations;
+			sourceTree = "<group>";
+		};
+		62FCB1FE2901F5F7002A7D11 /* MyEvents */ = {
+			isa = PBXGroup;
+			children = (
+				62FCB2032901F661002A7D11 /* MyEventsView.swift */,
+			);
+			name = MyEvents;
+			sourceTree = "<group>";
+		};
+		62FCB1FF2901F5F9002A7D11 /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				62FCB21129020348002A7D11 /* ViewModels */,
+				62FCB21029020341002A7D11 /* Views */,
+			);
+			name = Explore;
+			sourceTree = "<group>";
+		};
+		62FCB2002901F619002A7D11 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				62FCB20B2901FB36002A7D11 /* Views */,
+				62FCB20A2901FB2E002A7D11 /* ViewModels */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		62FCB2072901F761002A7D11 /* NewEvent */ = {
+			isa = PBXGroup;
+			children = (
+				62FCB2082901F775002A7D11 /* NewEventView.swift */,
+			);
+			name = NewEvent;
+			sourceTree = "<group>";
+		};
+		62FCB20A2901FB2E002A7D11 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				62FCB20E2901FFE1002A7D11 /* EventFilterViewModel.swift */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		62FCB20B2901FB36002A7D11 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				62FCB20C2901FB42002A7D11 /* ProfileView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		62FCB21029020341002A7D11 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				62FCB2012901F63C002A7D11 /* ExploreView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		62FCB21129020348002A7D11 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		62FCB2122902035D002A7D11 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				62FCB2132902036E002A7D11 /* UserRowView.swift */,
+			);
+			name = Users;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +327,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62FCB2062901F684002A7D11 /* NotificationsView.swift in Sources */,
 				62FCB1E22901EF57002A7D11 /* ContentView.swift in Sources */,
+				62FCB20D2901FB42002A7D11 /* ProfileView.swift in Sources */,
+				62FCB1F62901F00D002A7D11 /* FeedView.swift in Sources */,
+				62FCB1F92901F0C0002A7D11 /* EventsRowView.swift in Sources */,
+				62FCB20F2901FFE1002A7D11 /* EventFilterViewModel.swift in Sources */,
 				62FCB1E02901EF57002A7D11 /* BetterBeApp.swift in Sources */,
+				62FCB2022901F63C002A7D11 /* ExploreView.swift in Sources */,
+				62FCB1FC2901F528002A7D11 /* MainTabView.swift in Sources */,
+				62FCB2092901F775002A7D11 /* NewEventView.swift in Sources */,
+				62FCB2142902036E002A7D11 /* UserRowView.swift in Sources */,
+				62FCB2042901F661002A7D11 /* MyEventsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
