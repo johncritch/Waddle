@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6263A97D2907501200E139F1 /* FeedFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6263A97C2907501200E139F1 /* FeedFilterViewModel.swift */; };
 		62FCB1E02901EF57002A7D11 /* BetterBeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCB1DF2901EF57002A7D11 /* BetterBeApp.swift */; };
 		62FCB1E22901EF57002A7D11 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCB1E12901EF57002A7D11 /* ContentView.swift */; };
 		62FCB1E42901EF58002A7D11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62FCB1E32901EF58002A7D11 /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6263A97C2907501200E139F1 /* FeedFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedFilterViewModel.swift; sourceTree = "<group>"; };
 		62FCB1DC2901EF57002A7D11 /* BetterBe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetterBe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62FCB1DF2901EF57002A7D11 /* BetterBeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterBeApp.swift; sourceTree = "<group>"; };
 		62FCB1E12901EF57002A7D11 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 		62FCB1F32901EFEB002A7D11 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				6263A97C2907501200E139F1 /* FeedFilterViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				62FCB2062901F684002A7D11 /* NotificationsView.swift in Sources */,
+				6263A97D2907501200E139F1 /* FeedFilterViewModel.swift in Sources */,
 				62FCB1E22901EF57002A7D11 /* ContentView.swift in Sources */,
 				62FCB20D2901FB42002A7D11 /* ProfileView.swift in Sources */,
 				62FCB1F62901F00D002A7D11 /* FeedView.swift in Sources */,

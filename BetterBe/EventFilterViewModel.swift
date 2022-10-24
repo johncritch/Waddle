@@ -15,7 +15,7 @@ enum EventFilterViewModel: Int, CaseIterable {
     var title: String {
         switch self {
         case .events: return "Events"
-        case .replies: return "Relies"
+        case .replies: return "Replies"
         case .likes: return "Likes"
         }
     }
