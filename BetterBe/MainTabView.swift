@@ -16,7 +16,7 @@ struct MainTabView: View {
                     self.selectedIndex = 0
                 }
                 .tabItem {
-                    Image(systemName: "globe.americas")
+                    Label("Community", systemImage: "person.3")
                 }.tag(0)
             
             ExploreView()
@@ -24,32 +24,16 @@ struct MainTabView: View {
                     self.selectedIndex = 1
                 }
                 .tabItem {
-                    Image(systemName: "magnifyingglass")
+                    Label("Explore", systemImage: "globe.americas")
                 }.tag(1)
             
-            NewEventView()
+            MyEventsView()
                 .onTapGesture {
                     self.selectedIndex = 2
                 }
                 .tabItem {
-                    Image(systemName: "plus")
+                    Label("My Events", systemImage: "checklist.checked")
                 }.tag(2)
-            
-            MyEventsView()
-                .onTapGesture {
-                    self.selectedIndex = 3
-                }
-                .tabItem {
-                    Image(systemName: "checkmark.shield")
-                }.tag(3)
-            
-            ProfileView()
-                .onTapGesture {
-                    self.selectedIndex = 4
-                }
-                .tabItem {
-                    Image(systemName: "bell")
-                }.tag(4)
         }
     }
 }
