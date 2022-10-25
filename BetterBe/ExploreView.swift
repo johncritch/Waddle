@@ -1,6 +1,6 @@
 //
 //  ExploreView.swift
-//  BetterBe
+//  Waddle
 //
 //  Created by John Critchlow on 10/20/22.
 //
