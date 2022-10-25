@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		62333E7929082E160021BED7 /* WaddleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62333E7829082E160021BED7 /* WaddleApp.swift */; };
 		6263A97D2907501200E139F1 /* FeedFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6263A97C2907501200E139F1 /* FeedFilterViewModel.swift */; };
-		62FCB1E02901EF57002A7D11 /* BetterBeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCB1DF2901EF57002A7D11 /* BetterBeApp.swift */; };
 		62FCB1E22901EF57002A7D11 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCB1E12901EF57002A7D11 /* ContentView.swift */; };
 		62FCB1E42901EF58002A7D11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62FCB1E32901EF58002A7D11 /* Assets.xcassets */; };
 		62FCB1E72901EF58002A7D11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62FCB1E62901EF58002A7D11 /* Preview Assets.xcassets */; };
@@ -25,9 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		62333E7829082E160021BED7 /* WaddleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaddleApp.swift; sourceTree = "<group>"; };
 		6263A97C2907501200E139F1 /* FeedFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedFilterViewModel.swift; sourceTree = "<group>"; };
 		62FCB1DC2901EF57002A7D11 /* Waddle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Waddle.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		62FCB1DF2901EF57002A7D11 /* BetterBeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterBeApp.swift; sourceTree = "<group>"; };
 		62FCB1E12901EF57002A7D11 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		62FCB1E32901EF58002A7D11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62FCB1E62901EF58002A7D11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -77,8 +77,8 @@
 				62FCB1EF2901EF7E002A7D11 /* Service */,
 				62FCB1EE2901EF7B002A7D11 /* Model */,
 				62FCB1ED2901EF73002A7D11 /* Extensions */,
-				62FCB1DF2901EF57002A7D11 /* BetterBeApp.swift */,
 				62FCB1E12901EF57002A7D11 /* ContentView.swift */,
+				62333E7829082E160021BED7 /* WaddleApp.swift */,
 				62FCB1E32901EF58002A7D11 /* Assets.xcassets */,
 				62FCB1E52901EF58002A7D11 /* Preview Content */,
 			);
@@ -337,9 +337,9 @@
 				62FCB1F62901F00D002A7D11 /* FeedView.swift in Sources */,
 				62FCB1F92901F0C0002A7D11 /* EventsRowView.swift in Sources */,
 				62FCB20F2901FFE1002A7D11 /* EventFilterViewModel.swift in Sources */,
-				62FCB1E02901EF57002A7D11 /* BetterBeApp.swift in Sources */,
 				62FCB2022901F63C002A7D11 /* ExploreView.swift in Sources */,
 				62FCB1FC2901F528002A7D11 /* MainTabView.swift in Sources */,
+				62333E7929082E160021BED7 /* WaddleApp.swift in Sources */,
 				62FCB2092901F775002A7D11 /* NewEventView.swift in Sources */,
 				62FCB2142902036E002A7D11 /* UserRowView.swift in Sources */,
 				62FCB2042901F661002A7D11 /* MyEventsView.swift in Sources */,
@@ -470,7 +470,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"BetterBe/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Waddle/Preview Content\"";
 				DEVELOPMENT_TEAM = 82MMY53XP9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -499,7 +499,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"BetterBe/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Waddle/Preview Content\"";
 				DEVELOPMENT_TEAM = 82MMY53XP9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
