@@ -57,7 +57,7 @@
 		62FCB1D32901EF57002A7D11 = {
 			isa = PBXGroup;
 			children = (
-				62FCB1DE2901EF57002A7D11 /* BetterBe */,
+				62FCB1DE2901EF57002A7D11 /* Waddle */,
 				62FCB1DD2901EF57002A7D11 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,7 +70,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		62FCB1DE2901EF57002A7D11 /* BetterBe */ = {
+		62FCB1DE2901EF57002A7D11 /* Waddle */ = {
 			isa = PBXGroup;
 			children = (
 				62FCB1F02901EF81002A7D11 /* Core */,
@@ -82,7 +82,7 @@
 				62FCB1E32901EF58002A7D11 /* Assets.xcassets */,
 				62FCB1E52901EF58002A7D11 /* Preview Content */,
 			);
-			path = BetterBe;
+			path = Waddle;
 			sourceTree = "<group>";
 		};
 		62FCB1E52901EF58002A7D11 /* Preview Content */ = {
@@ -295,7 +295,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 62FCB1D72901EF57002A7D11 /* Build configuration list for PBXProject "BetterBe" */;
+			buildConfigurationList = 62FCB1D72901EF57002A7D11 /* Build configuration list for PBXProject "Waddle" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -524,7 +524,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		62FCB1D72901EF57002A7D11 /* Build configuration list for PBXProject "BetterBe" */ = {
+		62FCB1D72901EF57002A7D11 /* Build configuration list for PBXProject "Waddle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				62FCB1E82901EF58002A7D11 /* Debug */,
