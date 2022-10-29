@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FeedView: View {
     @State private var selectedFilter: FeedFilterViewModel = .friends
+    @State private var showNewEventView: Bool = false
     @Environment(\.presentationMode) var mode
     @Namespace var animation
     
@@ -16,11 +17,30 @@ struct FeedView: View {
         VStack {
             FeedFilterBar
             
-            ScrollView {
-                LazyVStack {
-                    ForEach(0...20, id: \.self) { _ in
-                        EventsRowView()
+            ZStack(alignment: .bottomTrailing) {
+                ScrollView {
+                    LazyVStack {
+                        ForEach(0...20, id: \.self) { _ in
+                            EventsRowView()
+                        }
                     }
+                }
+                
+                Button {
+                    showNewEventView.toggle()
+                } label: {
+                    Image(systemName: "plus")
+                        .resizable()
+                        .renderingMode(.template)
+                        .frame(width: 28, height: 28)
+                        .padding()
+                }
+                .background(Color(.systemBlue))
+                .foregroundColor(.white)
+                .clipShape(Circle())
+                .padding()
+                .fullScreenCover(isPresented: $showNewEventView) {
+                    NewEventView()
                 }
             }
         }
