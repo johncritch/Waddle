@@ -49,6 +49,7 @@
 		62333F1A290CE7FF0021BED7 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 62333F19290CE7FF0021BED7 /* FirebaseStorageCombine-Community */; };
 		6263A97D2907501200E139F1 /* FeedFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6263A97C2907501200E139F1 /* FeedFilterViewModel.swift */; };
 		627F354D290CF2A6007F1EB7 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627F354C290CF2A6007F1EB7 /* AuthViewModel.swift */; };
+		627F354F290DEF99007F1EB7 /* ProfilePhotoSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627F354E290DEF99007F1EB7 /* ProfilePhotoSelectorView.swift */; };
 		62FCB1E22901EF57002A7D11 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCB1E12901EF57002A7D11 /* ContentView.swift */; };
 		62FCB1E42901EF58002A7D11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62FCB1E32901EF58002A7D11 /* Assets.xcassets */; };
 		62FCB1E72901EF58002A7D11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62FCB1E62901EF58002A7D11 /* Preview Assets.xcassets */; };
@@ -79,6 +80,7 @@
 		62333EE1290CC44D0021BED7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		6263A97C2907501200E139F1 /* FeedFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedFilterViewModel.swift; sourceTree = "<group>"; };
 		627F354C290CF2A6007F1EB7 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		627F354E290DEF99007F1EB7 /* ProfilePhotoSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoSelectorView.swift; sourceTree = "<group>"; };
 		62FCB1DC2901EF57002A7D11 /* Waddle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Waddle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62FCB1E12901EF57002A7D11 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		62FCB1E32901EF58002A7D11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			children = (
 				62333ED6290CB90E0021BED7 /* LoginView.swift */,
 				62333ED8290CB9180021BED7 /* RegistrationView.swift */,
+				627F354E290DEF99007F1EB7 /* ProfilePhotoSelectorView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				62FCB1F92901F0C0002A7D11 /* EventsRowView.swift in Sources */,
 				62FCB20F2901FFE1002A7D11 /* EventFilterViewModel.swift in Sources */,
 				62333EC9290CA27C0021BED7 /* SideMenuViewModel.swift in Sources */,
+				627F354F290DEF99007F1EB7 /* ProfilePhotoSelectorView.swift in Sources */,
 				62FCB2022901F63C002A7D11 /* ExploreView.swift in Sources */,
 				62333EC5290CA25E0021BED7 /* SideMenuView.swift in Sources */,
 				62333EDB290CBA4A0021BED7 /* RoundedShape.swift in Sources */,
