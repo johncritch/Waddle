@@ -30,8 +30,7 @@ class AuthViewModel: ObservableObject {
             
             guard let user = result?.user else { return }
             self.userSession = user
-            
-            print("DEBUG: Did log user in.")
+            self.fetchUser()
         }
     }
     
@@ -60,8 +59,9 @@ class AuthViewModel: ObservableObject {
     }
     
     func signOut() {
-        // sets user to nill so app shows login
+        // sets user to nil so app shows login
         userSession = nil
+        currentUser = nil
         
         // signs user out on server
         try? Auth.auth().signOut()
@@ -75,6 +75,7 @@ class AuthViewModel: ObservableObject {
                 .document(uid)
                 .updateData(["profileImageUrl": profileImageUrl]) { _ in
                     self.userSession = self.tempUserSession
+                    self.fetchUser()
                 }
         }
     }
