@@ -50,6 +50,10 @@
 		6263A97D2907501200E139F1 /* FeedFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6263A97C2907501200E139F1 /* FeedFilterViewModel.swift */; };
 		627F354D290CF2A6007F1EB7 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627F354C290CF2A6007F1EB7 /* AuthViewModel.swift */; };
 		627F354F290DEF99007F1EB7 /* ProfilePhotoSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627F354E290DEF99007F1EB7 /* ProfilePhotoSelectorView.swift */; };
+		627F35522911E02D007F1EB7 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627F35512911E02D007F1EB7 /* ImagePicker.swift */; };
+		627F3554291215A0007F1EB7 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627F3553291215A0007F1EB7 /* ImageUploader.swift */; };
+		627F355629121C8E007F1EB7 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627F355529121C8E007F1EB7 /* UserService.swift */; };
+		627F355829121DFD007F1EB7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627F355729121DFD007F1EB7 /* User.swift */; };
 		62FCB1E22901EF57002A7D11 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCB1E12901EF57002A7D11 /* ContentView.swift */; };
 		62FCB1E42901EF58002A7D11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62FCB1E32901EF58002A7D11 /* Assets.xcassets */; };
 		62FCB1E72901EF58002A7D11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62FCB1E62901EF58002A7D11 /* Preview Assets.xcassets */; };
@@ -81,6 +85,10 @@
 		6263A97C2907501200E139F1 /* FeedFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedFilterViewModel.swift; sourceTree = "<group>"; };
 		627F354C290CF2A6007F1EB7 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		627F354E290DEF99007F1EB7 /* ProfilePhotoSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoSelectorView.swift; sourceTree = "<group>"; };
+		627F35512911E02D007F1EB7 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		627F3553291215A0007F1EB7 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
+		627F355529121C8E007F1EB7 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		627F355729121DFD007F1EB7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		62FCB1DC2901EF57002A7D11 /* Waddle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Waddle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62FCB1E12901EF57002A7D11 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		62FCB1E32901EF58002A7D11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -226,6 +234,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		627F35502911E01E007F1EB7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				627F35512911E02D007F1EB7 /* ImagePicker.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		62FCB1D32901EF57002A7D11 = {
 			isa = PBXGroup;
 			children = (
@@ -246,10 +262,11 @@
 		62FCB1DE2901EF57002A7D11 /* Waddle */ = {
 			isa = PBXGroup;
 			children = (
+				62FCB1EE2901EF7B002A7D11 /* Model */,
 				62FCB1F02901EF81002A7D11 /* Core */,
 				62FCB1EF2901EF7E002A7D11 /* Service */,
-				62FCB1EE2901EF7B002A7D11 /* Model */,
 				62FCB1ED2901EF73002A7D11 /* Extensions */,
+				627F35502911E01E007F1EB7 /* Utils */,
 				62FCB1E12901EF57002A7D11 /* ContentView.swift */,
 				62333E7829082E160021BED7 /* WaddleApp.swift */,
 				62FCB1E32901EF58002A7D11 /* Assets.xcassets */,
@@ -277,6 +294,7 @@
 		62FCB1EE2901EF7B002A7D11 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				627F355729121DFD007F1EB7 /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -284,6 +302,8 @@
 		62FCB1EF2901EF7E002A7D11 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				627F3553291215A0007F1EB7 /* ImageUploader.swift */,
+				627F355529121C8E007F1EB7 /* UserService.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -536,6 +556,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				627F355629121C8E007F1EB7 /* UserService.swift in Sources */,
 				62333EDD290CBDE10021BED7 /* CustomInputField.swift in Sources */,
 				62FCB2062901F684002A7D11 /* NotificationsView.swift in Sources */,
 				62333ECB290CA4480021BED7 /* UserStatsView.swift in Sources */,
@@ -543,12 +564,14 @@
 				62333EE0290CBF530021BED7 /* AuthHeaderView.swift in Sources */,
 				62333EC7290CA26C0021BED7 /* SideMenuOptionRowView.swift in Sources */,
 				62FCB1E22901EF57002A7D11 /* ContentView.swift in Sources */,
+				627F355829121DFD007F1EB7 /* User.swift in Sources */,
 				62FCB20D2901FB42002A7D11 /* ProfileView.swift in Sources */,
 				62FCB1F62901F00D002A7D11 /* FeedView.swift in Sources */,
 				62333ED2290CB4820021BED7 /* TextArea.swift in Sources */,
 				62333ED0290CB3B20021BED7 /* NewEventView.swift in Sources */,
 				62FCB1F92901F0C0002A7D11 /* EventsRowView.swift in Sources */,
 				62FCB20F2901FFE1002A7D11 /* EventFilterViewModel.swift in Sources */,
+				627F35522911E02D007F1EB7 /* ImagePicker.swift in Sources */,
 				62333EC9290CA27C0021BED7 /* SideMenuViewModel.swift in Sources */,
 				627F354F290DEF99007F1EB7 /* ProfilePhotoSelectorView.swift in Sources */,
 				62FCB2022901F63C002A7D11 /* ExploreView.swift in Sources */,
@@ -558,6 +581,7 @@
 				62333E7929082E160021BED7 /* WaddleApp.swift in Sources */,
 				62333ED7290CB90E0021BED7 /* LoginView.swift in Sources */,
 				627F354D290CF2A6007F1EB7 /* AuthViewModel.swift in Sources */,
+				627F3554291215A0007F1EB7 /* ImageUploader.swift in Sources */,
 				62FCB2142902036E002A7D11 /* UserRowView.swift in Sources */,
 				62FCB2042901F661002A7D11 /* MyEventsView.swift in Sources */,
 				62333ED9290CB9180021BED7 /* RegistrationView.swift in Sources */,
@@ -688,6 +712,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"Waddle/Preview Content\"";
 				DEVELOPMENT_TEAM = 82MMY53XP9;
 				ENABLE_PREVIEWS = YES;

@@ -25,6 +25,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(AuthViewModel())
     }
 }
 
@@ -32,26 +33,24 @@ extension ContentView {
     var mainInterfaceView: some View {
         ZStack(alignment: .topLeading) {
             MainTabView()
-                .navigationBarHidden(showMenu)
+//                .navigationBarHidden(showMenu)
             
-            if showMenu {
-                ZStack {
-                    Color(.black)
-                        .opacity(showMenu ? 0.25 : 0.0)
-                }.onTapGesture {
+            ZStack {
+                Color(.black)
+                    .opacity(showMenu ? 0.25 : 0.0)
+            }.onTapGesture {
+                if showMenu {
                     withAnimation(.easeInOut) {
                         showMenu = false
                     }
                 }
-                .ignoresSafeArea()
             }
+            .ignoresSafeArea()
             
             SideMenuView()
-                .frame(width: 300)
-                .offset(x: showMenu ? 0 : -300)
-                .background(showMenu ? Color.white : Color.clear)
+                .offset(x: showMenu ? 0 : -350)
         }
-        .navigationTitle("Home")
+        .navigationTitle(showMenu ? "'" : "Home")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
@@ -62,8 +61,8 @@ extension ContentView {
                 } label: {
                     Circle()
                         .frame(width: 32, height: 32)
+                        .opacity(showMenu ? 0 : 1)
                 }
-                
             }
         }
         .onAppear {
