@@ -6,10 +6,20 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct NewEventView: View {
+    @State private var title = ""
     @State private var caption = ""
+    @State private var day = Date()
+    @State private var city = ""
+    @State private var privateEvent = false
+    @State private var limitedCapacity = false
+    @State private var maxNumberJoin = 0
+    
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var authViewModel: AuthViewModel
+    @ObservedObject var viewModel = UploadEventViewModel()
     
     var body: some View {
         VStack {
@@ -22,7 +32,7 @@ struct NewEventView: View {
                 }
                 Spacer()
                 Button {
-                    print("Event")
+                    viewModel.uploadEvent(withCaption: caption)
                 } label: {
                     Text("Publish")
                         .bold()
@@ -36,13 +46,19 @@ struct NewEventView: View {
             }
             .padding()
             
-            HStack(alignment: .top) {
-                Circle()
-                    .frame(width: 64, height: 64)
-                
+            VStack {
+                TextField("Title:", text: $title)
+                TextArea("What's happening?", text: $caption)
+                TextArea("What's happening?", text: $caption)
+                TextArea("What's happening?", text: $caption)
                 TextArea("What's happening?", text: $caption)
             }
             .padding()
+        }
+        .onReceive(viewModel.$didUploadEvent) { success in
+            if success {
+                presentationMode.wrappedValue.dismiss()
+            }
         }
     }
 }
@@ -50,5 +66,6 @@ struct NewEventView: View {
 struct NewEventView_Previews: PreviewProvider {
     static var previews: some View {
         NewEventView()
+            .environmentObject(AuthViewModel())
     }
 }

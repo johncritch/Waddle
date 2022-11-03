@@ -10,13 +10,13 @@ import Foundation
 enum EventFilterViewModel: Int, CaseIterable {
     case events
     case replies
-    case likes
+    case joined
     
     var title: String {
         switch self {
         case .events: return "Events"
         case .replies: return "Replies"
-        case .likes: return "Likes"
+        case .joined: return "Joined"
         }
     }
 }

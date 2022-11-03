@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		62323F92291394CD001AC4D1 /* ExploreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62323F91291394CD001AC4D1 /* ExploreViewModel.swift */; };
 		62323F9429139892001AC4D1 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62323F9329139892001AC4D1 /* SearchBar.swift */; };
+		62323F9629143EBC001AC4D1 /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62323F9529143EBC001AC4D1 /* ProfileImage.swift */; };
+		62323F982914465D001AC4D1 /* EventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62323F972914465D001AC4D1 /* EventService.swift */; };
+		62323F9A291447C5001AC4D1 /* UploadEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62323F99291447C5001AC4D1 /* UploadEventViewModel.swift */; };
+		62323F9C29144A84001AC4D1 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62323F9B29144A84001AC4D1 /* FeedViewModel.swift */; };
+		62323F9E29144B87001AC4D1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62323F9D29144B87001AC4D1 /* Event.swift */; };
+		62323FA029145540001AC4D1 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62323F9F29145540001AC4D1 /* ProfileViewModel.swift */; };
+		62323FA429145A1E001AC4D1 /* EventRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62323FA329145A1E001AC4D1 /* EventRowViewModel.swift */; };
+		62323FA7291478F9001AC4D1 /* TestingVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62323FA6291478F9001AC4D1 /* TestingVariables.swift */; };
 		62333E7929082E160021BED7 /* WaddleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62333E7829082E160021BED7 /* WaddleApp.swift */; };
 		62333EC5290CA25E0021BED7 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62333EC4290CA25E0021BED7 /* SideMenuView.swift */; };
 		62333EC7290CA26C0021BED7 /* SideMenuOptionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62333EC6290CA26C0021BED7 /* SideMenuOptionRowView.swift */; };
@@ -74,6 +82,14 @@
 /* Begin PBXFileReference section */
 		62323F91291394CD001AC4D1 /* ExploreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewModel.swift; sourceTree = "<group>"; };
 		62323F9329139892001AC4D1 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		62323F9529143EBC001AC4D1 /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
+		62323F972914465D001AC4D1 /* EventService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventService.swift; sourceTree = "<group>"; };
+		62323F99291447C5001AC4D1 /* UploadEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadEventViewModel.swift; sourceTree = "<group>"; };
+		62323F9B29144A84001AC4D1 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		62323F9D29144B87001AC4D1 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		62323F9F29145540001AC4D1 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		62323FA329145A1E001AC4D1 /* EventRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRowViewModel.swift; sourceTree = "<group>"; };
+		62323FA6291478F9001AC4D1 /* TestingVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingVariables.swift; sourceTree = "<group>"; };
 		62333E7829082E160021BED7 /* WaddleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaddleApp.swift; sourceTree = "<group>"; };
 		62333EC4290CA25E0021BED7 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		62333EC6290CA26C0021BED7 /* SideMenuOptionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuOptionRowView.swift; sourceTree = "<group>"; };
@@ -148,6 +164,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		62323FA1291459F9001AC4D1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				62323FA329145A1E001AC4D1 /* EventRowViewModel.swift */,
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		62323FA229145A09001AC4D1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				62FCB1F82901F0C0002A7D11 /* EventsRowView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		62323FA5291478DE001AC4D1 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				62323FA6291478F9001AC4D1 /* TestingVariables.swift */,
+			);
+			name = Test;
+			sourceTree = "<group>";
+		};
 		62333EC1290CA22A0021BED7 /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +226,7 @@
 		62333ECD290CB3740021BED7 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				62323F99291447C5001AC4D1 /* UploadEventViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -243,6 +284,7 @@
 		627F35502911E01E007F1EB7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				62323FA5291478DE001AC4D1 /* Test */,
 				627F35512911E02D007F1EB7 /* ImagePicker.swift */,
 			);
 			name = Utils;
@@ -268,11 +310,11 @@
 		62FCB1DE2901EF57002A7D11 /* Waddle */ = {
 			isa = PBXGroup;
 			children = (
+				62FCB1ED2901EF73002A7D11 /* Extensions */,
+				62FCB1EF2901EF7E002A7D11 /* Service */,
+				627F35502911E01E007F1EB7 /* Utils */,
 				62FCB1EE2901EF7B002A7D11 /* Model */,
 				62FCB1F02901EF81002A7D11 /* Core */,
-				62FCB1EF2901EF7E002A7D11 /* Service */,
-				62FCB1ED2901EF73002A7D11 /* Extensions */,
-				627F35502911E01E007F1EB7 /* Utils */,
 				62FCB1E12901EF57002A7D11 /* ContentView.swift */,
 				62333E7829082E160021BED7 /* WaddleApp.swift */,
 				62FCB1E32901EF58002A7D11 /* Assets.xcassets */,
@@ -301,6 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				627F355729121DFD007F1EB7 /* User.swift */,
+				62323F9D29144B87001AC4D1 /* Event.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -310,6 +353,7 @@
 			children = (
 				627F3553291215A0007F1EB7 /* ImageUploader.swift */,
 				627F355529121C8E007F1EB7 /* UserService.swift */,
+				62323F972914465D001AC4D1 /* EventService.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -341,6 +385,7 @@
 				62333EDA290CBA4A0021BED7 /* RoundedShape.swift */,
 				62333EDC290CBDE10021BED7 /* CustomInputField.swift */,
 				62323F9329139892001AC4D1 /* SearchBar.swift */,
+				62323F9529143EBC001AC4D1 /* ProfileImage.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -358,6 +403,7 @@
 			isa = PBXGroup;
 			children = (
 				6263A97C2907501200E139F1 /* FeedFilterViewModel.swift */,
+				62323F9B29144A84001AC4D1 /* FeedViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -373,7 +419,8 @@
 		62FCB1F72901F07B002A7D11 /* Events */ = {
 			isa = PBXGroup;
 			children = (
-				62FCB1F82901F0C0002A7D11 /* EventsRowView.swift */,
+				62323FA1291459F9001AC4D1 /* ViewModel */,
+				62323FA229145A09001AC4D1 /* Views */,
 			);
 			name = Events;
 			sourceTree = "<group>";
@@ -424,6 +471,7 @@
 			isa = PBXGroup;
 			children = (
 				62FCB20E2901FFE1002A7D11 /* EventFilterViewModel.swift */,
+				62323F9F29145540001AC4D1 /* ProfileViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -566,12 +614,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62323F9C29144A84001AC4D1 /* FeedViewModel.swift in Sources */,
 				627F355629121C8E007F1EB7 /* UserService.swift in Sources */,
+				62323F9629143EBC001AC4D1 /* ProfileImage.swift in Sources */,
 				62333EDD290CBDE10021BED7 /* CustomInputField.swift in Sources */,
 				62FCB2062901F684002A7D11 /* NotificationsView.swift in Sources */,
 				62333ECB290CA4480021BED7 /* UserStatsView.swift in Sources */,
 				6263A97D2907501200E139F1 /* FeedFilterViewModel.swift in Sources */,
+				62323F982914465D001AC4D1 /* EventService.swift in Sources */,
 				62333EE0290CBF530021BED7 /* AuthHeaderView.swift in Sources */,
+				62323F9A291447C5001AC4D1 /* UploadEventViewModel.swift in Sources */,
 				62323F9429139892001AC4D1 /* SearchBar.swift in Sources */,
 				62323F92291394CD001AC4D1 /* ExploreViewModel.swift in Sources */,
 				62333EC7290CA26C0021BED7 /* SideMenuOptionRowView.swift in Sources */,
@@ -584,18 +636,22 @@
 				62FCB1F92901F0C0002A7D11 /* EventsRowView.swift in Sources */,
 				62FCB20F2901FFE1002A7D11 /* EventFilterViewModel.swift in Sources */,
 				627F35522911E02D007F1EB7 /* ImagePicker.swift in Sources */,
+				62323FA429145A1E001AC4D1 /* EventRowViewModel.swift in Sources */,
 				62333EC9290CA27C0021BED7 /* SideMenuViewModel.swift in Sources */,
 				627F354F290DEF99007F1EB7 /* ProfilePhotoSelectorView.swift in Sources */,
 				62FCB2022901F63C002A7D11 /* ExploreView.swift in Sources */,
 				62333EC5290CA25E0021BED7 /* SideMenuView.swift in Sources */,
+				62323FA029145540001AC4D1 /* ProfileViewModel.swift in Sources */,
 				62333EDB290CBA4A0021BED7 /* RoundedShape.swift in Sources */,
 				62FCB1FC2901F528002A7D11 /* MainTabView.swift in Sources */,
+				62323F9E29144B87001AC4D1 /* Event.swift in Sources */,
 				62333E7929082E160021BED7 /* WaddleApp.swift in Sources */,
 				62333ED7290CB90E0021BED7 /* LoginView.swift in Sources */,
 				627F354D290CF2A6007F1EB7 /* AuthViewModel.swift in Sources */,
 				627F3554291215A0007F1EB7 /* ImageUploader.swift in Sources */,
 				62FCB2142902036E002A7D11 /* UserRowView.swift in Sources */,
 				62FCB2042901F661002A7D11 /* MyEventsView.swift in Sources */,
+				62323FA7291478F9001AC4D1 /* TestingVariables.swift in Sources */,
 				62333ED9290CB9180021BED7 /* RegistrationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

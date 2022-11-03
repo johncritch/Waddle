@@ -10,6 +10,7 @@ import SwiftUI
 struct FeedView: View {
     @State private var selectedFilter: FeedFilterViewModel = .friends
     @State private var showNewEventView: Bool = false
+    @ObservedObject var viewModel = FeedViewModel()
     @Environment(\.presentationMode) var mode
     @Namespace var animation
     
@@ -20,8 +21,8 @@ struct FeedView: View {
             ZStack(alignment: .bottomTrailing) {
                 ScrollView {
                     LazyVStack {
-                        ForEach(0...20, id: \.self) { _ in
-                            EventsRowView()
+                        ForEach(viewModel.events) { event in
+                            EventsRowView(event: event)
                         }
                     }
                 }

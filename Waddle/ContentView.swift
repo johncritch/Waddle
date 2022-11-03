@@ -60,11 +60,8 @@ extension ContentView {
                             showMenu.toggle()
                         }
                     } label: {
-                        KFImage(URL(string: user.profileImageUrl))
-                            .resizable()
-                            .scaledToFill()
+                        ProfileImage(image: user.profileImageUrl)
                             .frame(width: 32, height: 32)
-                            .clipShape(Circle())
                             .opacity(showMenu ? 0 : 1)
                     }
                     

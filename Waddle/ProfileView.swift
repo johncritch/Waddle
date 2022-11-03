@@ -10,12 +10,12 @@ import Kingfisher
 
 struct ProfileView: View {
     @State private var selectedFilter: EventFilterViewModel = .events
+    @ObservedObject var viewModel: ProfileViewModel
     @Environment(\.presentationMode) var mode
     @Namespace var animation
-    private var user: User
     
     init(user: User) {
-        self.user = user
+        self.viewModel = ProfileViewModel(user: user)
     }
     
     var body: some View {
@@ -38,7 +38,7 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView(user: User(username: "john", first: "John", last: "Critchlow", profileImageUrl: "", email: "johnnyrcritch@gmail.com"))
+        ProfileView(user: TestingVariables().user)
     }
 }
 
@@ -60,10 +60,7 @@ extension ProfileView {
                 }
 
                 
-                KFImage(URL(string: user.profileImageUrl))
-                    .resizable()
-                    .scaledToFill()
-                    .clipShape(Circle())
+                ProfileImage(image: viewModel.user.profileImageUrl)
                     .frame(width: 72, height: 72)
                 .offset(x: 16, y: 24)
             }
@@ -83,7 +80,7 @@ extension ProfileView {
             Button {
                 //
             } label: {
-                Text("Edit Profile")
+                Text(viewModel.actionButtonTitle)
                     .font(.subheadline).bold()
                     .frame(width: 120, height: 32)
                     .foregroundColor(.black)
@@ -98,14 +95,14 @@ extension ProfileView {
     var userInfoDetails: some View {
         VStack(alignment: .leading, spacing: 4) {
             HStack {
-                Text(user.fullname)
+                Text(viewModel.user.fullname)
                     .font(.title2).bold()
                 
                 Image(systemName: "checkmark.seal.fill")
                     .foregroundColor(Color(.systemBlue))
             }
             
-            Text("@\(user.username)")
+            Text("@\(viewModel.user.username)")
                 .font(.subheadline)
                 .foregroundColor(.gray)
             
@@ -167,8 +164,8 @@ extension ProfileView {
     var eventsView: some View {
         ScrollView {
             LazyVStack {
-                ForEach(0...9, id: \.self) { _ in
-                    EventsRowView()
+                ForEach(viewModel.events(forFilter: self.selectedFilter)) { event in
+                    EventsRowView(event: event)
                 }
             }
         }

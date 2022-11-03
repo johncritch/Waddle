@@ -6,17 +6,13 @@
 //
 
 import SwiftUI
-import Kingfisher
 
 struct UserRowView: View {
     let user: User
     
     var body: some View {
         HStack (spacing: 12) {
-            KFImage(URL(string: user.profileImageUrl))
-                .resizable()
-                .scaledToFill()
-                .clipShape(Circle())
+            ProfileImage(image: user.profileImageUrl)
                 .frame(width:56, height: 56)
             
             VStack (alignment: .leading, spacing: 4) {
