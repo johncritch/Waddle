@@ -62,6 +62,8 @@ class AuthViewModel: ObservableObject {
         // sets user to nil so app shows login
         userSession = nil
         currentUser = nil
+        tempUserSession = nil
+        didAuthenticateUser = false
         
         // signs user out on server
         try? Auth.auth().signOut()

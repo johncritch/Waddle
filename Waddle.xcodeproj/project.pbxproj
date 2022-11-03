@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		62323F92291394CD001AC4D1 /* ExploreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62323F91291394CD001AC4D1 /* ExploreViewModel.swift */; };
+		62323F9429139892001AC4D1 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62323F9329139892001AC4D1 /* SearchBar.swift */; };
 		62333E7929082E160021BED7 /* WaddleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62333E7829082E160021BED7 /* WaddleApp.swift */; };
 		62333EC5290CA25E0021BED7 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62333EC4290CA25E0021BED7 /* SideMenuView.swift */; };
 		62333EC7290CA26C0021BED7 /* SideMenuOptionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62333EC6290CA26C0021BED7 /* SideMenuOptionRowView.swift */; };
@@ -70,6 +72,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		62323F91291394CD001AC4D1 /* ExploreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewModel.swift; sourceTree = "<group>"; };
+		62323F9329139892001AC4D1 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		62333E7829082E160021BED7 /* WaddleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaddleApp.swift; sourceTree = "<group>"; };
 		62333EC4290CA25E0021BED7 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		62333EC6290CA26C0021BED7 /* SideMenuOptionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuOptionRowView.swift; sourceTree = "<group>"; };
@@ -336,6 +340,7 @@
 				62333ED1290CB4820021BED7 /* TextArea.swift */,
 				62333EDA290CBA4A0021BED7 /* RoundedShape.swift */,
 				62333EDC290CBDE10021BED7 /* CustomInputField.swift */,
+				62323F9329139892001AC4D1 /* SearchBar.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -442,6 +447,7 @@
 		62FCB21129020348002A7D11 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				62323F91291394CD001AC4D1 /* ExploreViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -566,6 +572,8 @@
 				62333ECB290CA4480021BED7 /* UserStatsView.swift in Sources */,
 				6263A97D2907501200E139F1 /* FeedFilterViewModel.swift in Sources */,
 				62333EE0290CBF530021BED7 /* AuthHeaderView.swift in Sources */,
+				62323F9429139892001AC4D1 /* SearchBar.swift in Sources */,
+				62323F92291394CD001AC4D1 /* ExploreViewModel.swift in Sources */,
 				62333EC7290CA26C0021BED7 /* SideMenuOptionRowView.swift in Sources */,
 				62FCB1E22901EF57002A7D11 /* ContentView.swift in Sources */,
 				627F355829121DFD007F1EB7 /* User.swift in Sources */,
@@ -733,9 +741,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.RenaissancePenguin.Waddle;
 				PRODUCT_NAME = Waddle;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -762,9 +773,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.RenaissancePenguin.Waddle;
 				PRODUCT_NAME = Waddle;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

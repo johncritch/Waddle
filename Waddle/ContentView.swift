@@ -67,6 +67,12 @@ extension ContentView {
                             .clipShape(Circle())
                             .opacity(showMenu ? 0 : 1)
                     }
+                    
+                }
+                Button {
+                    viewModel.signOut()
+                } label: {
+                    Text("Sign Out")
                 }
             }
         }

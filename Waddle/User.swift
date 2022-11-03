@@ -14,4 +14,10 @@ struct User: Identifiable, Decodable {
     let last: String
     let profileImageUrl: String
     let email: String
+    
+    var fullname: String {
+        return first + " " + last
+    }
 }
+
+
