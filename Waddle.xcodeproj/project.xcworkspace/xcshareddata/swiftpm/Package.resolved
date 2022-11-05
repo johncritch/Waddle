@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "blacklabsswiftuicolor",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/nbasham/BlackLabsSwiftUIColor/",
+      "state" : {
+        "revision" : "8276ab9a9fa74876df2620339fa35d21d49bb902",
+        "version" : "1.6.0"
+      }
+    },
+    {
       "identity" : "boringssl-swiftpm",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/firebase/boringssl-SwiftPM.git",

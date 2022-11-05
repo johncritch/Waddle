@@ -20,6 +20,7 @@ struct ProfileView: View {
     
     var body: some View {
         VStack (alignment: .leading) {
+            
             headerView
             
             actionButtons

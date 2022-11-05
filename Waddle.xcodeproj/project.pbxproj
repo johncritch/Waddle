@@ -65,6 +65,9 @@
 		627F355629121C8E007F1EB7 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627F355529121C8E007F1EB7 /* UserService.swift */; };
 		627F355829121DFD007F1EB7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627F355729121DFD007F1EB7 /* User.swift */; };
 		628D41E9291225B2004AD386 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 628D41E8291225B2004AD386 /* Kingfisher */; };
+		62BD849D2915CAE6009D0B0E /* InputArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BD849C2915CAE6009D0B0E /* InputArea.swift */; };
+		62BD84A02915CDB2009D0B0E /* BlackLabsSwiftUIColor in Frameworks */ = {isa = PBXBuildFile; productRef = 62BD849F2915CDB2009D0B0E /* BlackLabsSwiftUIColor */; };
+		62BD84A22915EF8D009D0B0E /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BD84A12915EF8D009D0B0E /* Tag.swift */; };
 		62FCB1E22901EF57002A7D11 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCB1E12901EF57002A7D11 /* ContentView.swift */; };
 		62FCB1E42901EF58002A7D11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62FCB1E32901EF58002A7D11 /* Assets.xcassets */; };
 		62FCB1E72901EF58002A7D11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62FCB1E62901EF58002A7D11 /* Preview Assets.xcassets */; };
@@ -110,6 +113,8 @@
 		627F3553291215A0007F1EB7 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		627F355529121C8E007F1EB7 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		627F355729121DFD007F1EB7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		62BD849C2915CAE6009D0B0E /* InputArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputArea.swift; sourceTree = "<group>"; };
+		62BD84A12915EF8D009D0B0E /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		62FCB1DC2901EF57002A7D11 /* Waddle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Waddle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62FCB1E12901EF57002A7D11 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		62FCB1E32901EF58002A7D11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -135,6 +140,7 @@
 				62333F0C290CE7FF0021BED7 /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
 				62333EFE290CE7FF0021BED7 /* FirebaseDatabase in Frameworks */,
 				62333EE5290CDA080021BED7 /* FirebaseAuth in Frameworks */,
+				62BD84A02915CDB2009D0B0E /* BlackLabsSwiftUIColor in Frameworks */,
 				62333EF0290CE7FF0021BED7 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				62333EEB290CDA080021BED7 /* FirebaseStorage in Frameworks */,
 				62333EE7290CDA080021BED7 /* FirebaseFirestore in Frameworks */,
@@ -381,11 +387,13 @@
 				62333EDE290CBF430021BED7 /* Authentication */,
 				62FCB2122902035D002A7D11 /* Users */,
 				62FCB1F72901F07B002A7D11 /* Events */,
+				62BD849C2915CAE6009D0B0E /* InputArea.swift */,
 				62333ED1290CB4820021BED7 /* TextArea.swift */,
 				62333EDA290CBA4A0021BED7 /* RoundedShape.swift */,
 				62333EDC290CBDE10021BED7 /* CustomInputField.swift */,
 				62323F9329139892001AC4D1 /* SearchBar.swift */,
 				62323F9529143EBC001AC4D1 /* ProfileImage.swift */,
+				62BD84A12915EF8D009D0B0E /* Tag.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -554,6 +562,7 @@
 				62333F17290CE7FF0021BED7 /* FirebaseRemoteConfigSwift */,
 				62333F19290CE7FF0021BED7 /* FirebaseStorageCombine-Community */,
 				628D41E8291225B2004AD386 /* Kingfisher */,
+				62BD849F2915CDB2009D0B0E /* BlackLabsSwiftUIColor */,
 			);
 			productName = BetterBe;
 			productReference = 62FCB1DC2901EF57002A7D11 /* Waddle.app */;
@@ -586,6 +595,7 @@
 			packageReferences = (
 				62333EE3290CDA080021BED7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				628D41E7291225B2004AD386 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				62BD849E2915CDB2009D0B0E /* XCRemoteSwiftPackageReference "BlackLabsSwiftUIColor" */,
 			);
 			productRefGroup = 62FCB1DD2901EF57002A7D11 /* Products */;
 			projectDirPath = "";
@@ -625,8 +635,10 @@
 				62333EE0290CBF530021BED7 /* AuthHeaderView.swift in Sources */,
 				62323F9A291447C5001AC4D1 /* UploadEventViewModel.swift in Sources */,
 				62323F9429139892001AC4D1 /* SearchBar.swift in Sources */,
+				62BD849D2915CAE6009D0B0E /* InputArea.swift in Sources */,
 				62323F92291394CD001AC4D1 /* ExploreViewModel.swift in Sources */,
 				62333EC7290CA26C0021BED7 /* SideMenuOptionRowView.swift in Sources */,
+				62BD84A22915EF8D009D0B0E /* Tag.swift in Sources */,
 				62FCB1E22901EF57002A7D11 /* ContentView.swift in Sources */,
 				627F355829121DFD007F1EB7 /* User.swift in Sources */,
 				62FCB20D2901FB42002A7D11 /* ProfileView.swift in Sources */,
@@ -878,6 +890,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		62BD849E2915CDB2009D0B0E /* XCRemoteSwiftPackageReference "BlackLabsSwiftUIColor" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nbasham/BlackLabsSwiftUIColor/";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1020,6 +1040,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 628D41E7291225B2004AD386 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		62BD849F2915CDB2009D0B0E /* BlackLabsSwiftUIColor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62BD849E2915CDB2009D0B0E /* XCRemoteSwiftPackageReference "BlackLabsSwiftUIColor" */;
+			productName = BlackLabsSwiftUIColor;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
