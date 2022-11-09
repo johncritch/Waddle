@@ -21,6 +21,6 @@ struct ProfileImage: View {
 struct ProfileImage_Previews: PreviewProvider {
     static var previews: some View {
         ProfileImage(image: "https://firebasestorage.googleapis.com:443/v0/b/waddle-c1750.appspot.com/o/profile_images%2F7A1A955C-7356-49E3-811C-B01E80154609?alt=media&token=d00410a7-be11-4a00-bae5-0affcf53340e")
-            .frame(width: 56, height: 56)
+            .frame(width: 350, height: 350)
     }
 }

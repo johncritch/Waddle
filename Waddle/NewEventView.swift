@@ -16,11 +16,13 @@ struct NewEventView: View {
     @State private var privateEvent = false
     @State private var limitedCapacity = false
     @State private var maxNumberJoin: Int = 0
-    @State private var tags = ["Sports", "Girls","Women", "Party","Dugs", "Alcohol","Fun Stuff", "Adventure",]
     
     @State private var showTitleInputArea = false
     @State private var showCaptionInputArea = false
     @State private var showCityInputArea = false
+    @State private var showTagsMenu = false
+    @State private var tags = [Tag]()
+    @State private var selectedTags = [Tag]()
     
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var authViewModel: AuthViewModel
@@ -28,41 +30,42 @@ struct NewEventView: View {
     
     var body: some View {
         VStack {
+            HStack {
+                Button {
+                    presentationMode.wrappedValue.dismiss()
+                } label: {
+                    Text("Cancel")
+                        .foregroundColor(Color(.systemBlue))
+                }
+                Spacer()
+                Button {
+                    viewModel.uploadEvent(withCaption: caption)
+                } label: {
+                    Text("Publish")
+                        .bold()
+                        .padding(.horizontal)
+                        .padding(.vertical, 8)
+                        .background(Color(.systemBlue))
+                        .foregroundColor(.white)
+                        .clipShape(Capsule())
+                }
+
+            }
+            .padding(.horizontal, 30)
+            
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
                     .fill(.white)
                     .padding(.horizontal)
-                    .padding(.vertical, 10)
+                    .padding(.vertical)
                     .shadow(radius: 4)
                 VStack {
-                    HStack {
-                        Button {
-                            presentationMode.wrappedValue.dismiss()
-                        } label: {
-                            Text("Cancel")
-                                .foregroundColor(Color(.systemBlue))
-                        }
-                        Spacer()
-                        Button {
-                            viewModel.uploadEvent(withCaption: caption)
-                        } label: {
-                            Text("Publish")
-                                .bold()
-                                .padding(.horizontal)
-                                .padding(.vertical, 8)
-                                .background(Color(.systemBlue))
-                                .foregroundColor(.white)
-                                .clipShape(Capsule())
-                        }
-                        
-                    }
-                    .padding(.horizontal, 40)
-                    .padding(.top, 30)
                     
                     VStack(alignment: .leading) {
                         TextField("Title goes here..", text: $title)
                             .font(.title2)
                             .padding(.horizontal, 24)
+                            .padding(.top, 20)
                         TextArea("Description goes here..", text: $caption)
                             .padding(.horizontal, 18)
                         tagsRow
@@ -144,10 +147,10 @@ struct NewEventView: View {
             HStack {
                 
                 Button {
-                    //
+                    showTagsMenu = true
                 } label: {
                     if tags.isEmpty {
-                        (Text("  Add a tag ") + Text(Image(systemName: "plus")) + Text(" "))
+                        (Text(" Add a tag ") + Text(Image(systemName: "plus")) + Text("  "))
                             .foregroundColor(.white)
                             .frame(height: 30)
                             .background(Color(.systemBlue))
@@ -163,9 +166,12 @@ struct NewEventView: View {
                             }
                     }
                 }
+                .sheet(isPresented: $showTagsMenu) {
+                    TagsMenuView(tags: $tags)
+                }
                 
-                ForEach(tags, id: \.self) { tag in
-                    Tag(tagName: tag)
+                ForEach(tags, id: \.id) { tag in
+                    TagView(selectedTags: $selectedTags, tag: tag)
                 }
             }
         }

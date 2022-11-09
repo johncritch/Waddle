@@ -67,7 +67,10 @@
 		628D41E9291225B2004AD386 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 628D41E8291225B2004AD386 /* Kingfisher */; };
 		62BD849D2915CAE6009D0B0E /* InputArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BD849C2915CAE6009D0B0E /* InputArea.swift */; };
 		62BD84A02915CDB2009D0B0E /* BlackLabsSwiftUIColor in Frameworks */ = {isa = PBXBuildFile; productRef = 62BD849F2915CDB2009D0B0E /* BlackLabsSwiftUIColor */; };
-		62BD84A22915EF8D009D0B0E /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BD84A12915EF8D009D0B0E /* Tag.swift */; };
+		62BD84A22915EF8D009D0B0E /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BD84A12915EF8D009D0B0E /* TagView.swift */; };
+		62BD84A4291AAFEB009D0B0E /* PullToRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BD84A3291AAFEB009D0B0E /* PullToRefreshView.swift */; };
+		62BD84C5291AF46B009D0B0E /* TagsMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BD84C4291AF46B009D0B0E /* TagsMenuView.swift */; };
+		62BD84C7291AF75B009D0B0E /* TagsMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BD84C6291AF75B009D0B0E /* TagsMenuViewModel.swift */; };
 		62FCB1E22901EF57002A7D11 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCB1E12901EF57002A7D11 /* ContentView.swift */; };
 		62FCB1E42901EF58002A7D11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62FCB1E32901EF58002A7D11 /* Assets.xcassets */; };
 		62FCB1E72901EF58002A7D11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62FCB1E62901EF58002A7D11 /* Preview Assets.xcassets */; };
@@ -114,7 +117,10 @@
 		627F355529121C8E007F1EB7 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		627F355729121DFD007F1EB7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		62BD849C2915CAE6009D0B0E /* InputArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputArea.swift; sourceTree = "<group>"; };
-		62BD84A12915EF8D009D0B0E /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		62BD84A12915EF8D009D0B0E /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		62BD84A3291AAFEB009D0B0E /* PullToRefreshView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefreshView.swift; sourceTree = "<group>"; };
+		62BD84C4291AF46B009D0B0E /* TagsMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsMenuView.swift; sourceTree = "<group>"; };
+		62BD84C6291AF75B009D0B0E /* TagsMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsMenuViewModel.swift; sourceTree = "<group>"; };
 		62FCB1DC2901EF57002A7D11 /* Waddle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Waddle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62FCB1E12901EF57002A7D11 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		62FCB1E32901EF58002A7D11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -233,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				62323F99291447C5001AC4D1 /* UploadEventViewModel.swift */,
+				62BD84C6291AF75B009D0B0E /* TagsMenuViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -241,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				62333ECF290CB3B20021BED7 /* NewEventView.swift */,
+				62BD84C4291AF46B009D0B0E /* TagsMenuView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -393,7 +401,8 @@
 				62333EDC290CBDE10021BED7 /* CustomInputField.swift */,
 				62323F9329139892001AC4D1 /* SearchBar.swift */,
 				62323F9529143EBC001AC4D1 /* ProfileImage.swift */,
-				62BD84A12915EF8D009D0B0E /* Tag.swift */,
+				62BD84A12915EF8D009D0B0E /* TagView.swift */,
+				62BD84A3291AAFEB009D0B0E /* PullToRefreshView.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -638,8 +647,9 @@
 				62BD849D2915CAE6009D0B0E /* InputArea.swift in Sources */,
 				62323F92291394CD001AC4D1 /* ExploreViewModel.swift in Sources */,
 				62333EC7290CA26C0021BED7 /* SideMenuOptionRowView.swift in Sources */,
-				62BD84A22915EF8D009D0B0E /* Tag.swift in Sources */,
+				62BD84A22915EF8D009D0B0E /* TagView.swift in Sources */,
 				62FCB1E22901EF57002A7D11 /* ContentView.swift in Sources */,
+				62BD84C5291AF46B009D0B0E /* TagsMenuView.swift in Sources */,
 				627F355829121DFD007F1EB7 /* User.swift in Sources */,
 				62FCB20D2901FB42002A7D11 /* ProfileView.swift in Sources */,
 				62FCB1F62901F00D002A7D11 /* FeedView.swift in Sources */,
@@ -656,10 +666,12 @@
 				62323FA029145540001AC4D1 /* ProfileViewModel.swift in Sources */,
 				62333EDB290CBA4A0021BED7 /* RoundedShape.swift in Sources */,
 				62FCB1FC2901F528002A7D11 /* MainTabView.swift in Sources */,
+				62BD84A4291AAFEB009D0B0E /* PullToRefreshView.swift in Sources */,
 				62323F9E29144B87001AC4D1 /* Event.swift in Sources */,
 				62333E7929082E160021BED7 /* WaddleApp.swift in Sources */,
 				62333ED7290CB90E0021BED7 /* LoginView.swift in Sources */,
 				627F354D290CF2A6007F1EB7 /* AuthViewModel.swift in Sources */,
+				62BD84C7291AF75B009D0B0E /* TagsMenuViewModel.swift in Sources */,
 				627F3554291215A0007F1EB7 /* ImageUploader.swift in Sources */,
 				62FCB2142902036E002A7D11 /* UserRowView.swift in Sources */,
 				62FCB2042901F661002A7D11 /* MyEventsView.swift in Sources */,

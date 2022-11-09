@@ -21,6 +21,10 @@ struct FeedView: View {
             ZStack(alignment: .bottomTrailing) {
                 ScrollView {
                     LazyVStack {
+                        PullToRefreshView {
+                            viewModel.fetchEvents()
+                        }
+                        
                         ForEach(viewModel.events) { event in
                             EventsRowView(event: event)
                         }
