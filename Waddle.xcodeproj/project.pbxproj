@@ -71,6 +71,8 @@
 		62BD84A4291AAFEB009D0B0E /* PullToRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BD84A3291AAFEB009D0B0E /* PullToRefreshView.swift */; };
 		62BD84C5291AF46B009D0B0E /* TagsMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BD84C4291AF46B009D0B0E /* TagsMenuView.swift */; };
 		62BD84C7291AF75B009D0B0E /* TagsMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BD84C6291AF75B009D0B0E /* TagsMenuViewModel.swift */; };
+		62BD84C9291B888D009D0B0E /* ScrollRefreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BD84C8291B888D009D0B0E /* ScrollRefreshable.swift */; };
+		62BD84CC291B8CDA009D0B0E /* RefreshableScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 62BD84CB291B8CDA009D0B0E /* RefreshableScrollView */; };
 		62FCB1E22901EF57002A7D11 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCB1E12901EF57002A7D11 /* ContentView.swift */; };
 		62FCB1E42901EF58002A7D11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62FCB1E32901EF58002A7D11 /* Assets.xcassets */; };
 		62FCB1E72901EF58002A7D11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62FCB1E62901EF58002A7D11 /* Preview Assets.xcassets */; };
@@ -121,6 +123,7 @@
 		62BD84A3291AAFEB009D0B0E /* PullToRefreshView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefreshView.swift; sourceTree = "<group>"; };
 		62BD84C4291AF46B009D0B0E /* TagsMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsMenuView.swift; sourceTree = "<group>"; };
 		62BD84C6291AF75B009D0B0E /* TagsMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsMenuViewModel.swift; sourceTree = "<group>"; };
+		62BD84C8291B888D009D0B0E /* ScrollRefreshable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollRefreshable.swift; sourceTree = "<group>"; };
 		62FCB1DC2901EF57002A7D11 /* Waddle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Waddle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62FCB1E12901EF57002A7D11 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		62FCB1E32901EF58002A7D11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -145,6 +148,7 @@
 				62333F00290CE7FF0021BED7 /* FirebaseDatabaseSwift in Frameworks */,
 				62333F0C290CE7FF0021BED7 /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
 				62333EFE290CE7FF0021BED7 /* FirebaseDatabase in Frameworks */,
+				62BD84CC291B8CDA009D0B0E /* RefreshableScrollView in Frameworks */,
 				62333EE5290CDA080021BED7 /* FirebaseAuth in Frameworks */,
 				62BD84A02915CDB2009D0B0E /* BlackLabsSwiftUIColor in Frameworks */,
 				62333EF0290CE7FF0021BED7 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
@@ -403,6 +407,7 @@
 				62323F9529143EBC001AC4D1 /* ProfileImage.swift */,
 				62BD84A12915EF8D009D0B0E /* TagView.swift */,
 				62BD84A3291AAFEB009D0B0E /* PullToRefreshView.swift */,
+				62BD84C8291B888D009D0B0E /* ScrollRefreshable.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -572,6 +577,7 @@
 				62333F19290CE7FF0021BED7 /* FirebaseStorageCombine-Community */,
 				628D41E8291225B2004AD386 /* Kingfisher */,
 				62BD849F2915CDB2009D0B0E /* BlackLabsSwiftUIColor */,
+				62BD84CB291B8CDA009D0B0E /* RefreshableScrollView */,
 			);
 			productName = BetterBe;
 			productReference = 62FCB1DC2901EF57002A7D11 /* Waddle.app */;
@@ -605,6 +611,7 @@
 				62333EE3290CDA080021BED7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				628D41E7291225B2004AD386 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				62BD849E2915CDB2009D0B0E /* XCRemoteSwiftPackageReference "BlackLabsSwiftUIColor" */,
+				62BD84CA291B8CDA009D0B0E /* XCRemoteSwiftPackageReference "RefreshableScrollView" */,
 			);
 			productRefGroup = 62FCB1DD2901EF57002A7D11 /* Products */;
 			projectDirPath = "";
@@ -670,6 +677,7 @@
 				62323F9E29144B87001AC4D1 /* Event.swift in Sources */,
 				62333E7929082E160021BED7 /* WaddleApp.swift in Sources */,
 				62333ED7290CB90E0021BED7 /* LoginView.swift in Sources */,
+				62BD84C9291B888D009D0B0E /* ScrollRefreshable.swift in Sources */,
 				627F354D290CF2A6007F1EB7 /* AuthViewModel.swift in Sources */,
 				62BD84C7291AF75B009D0B0E /* TagsMenuViewModel.swift in Sources */,
 				627F3554291215A0007F1EB7 /* ImageUploader.swift in Sources */,
@@ -910,6 +918,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		62BD84CA291B8CDA009D0B0E /* XCRemoteSwiftPackageReference "RefreshableScrollView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Q42/RefreshableScrollView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1057,6 +1073,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 62BD849E2915CDB2009D0B0E /* XCRemoteSwiftPackageReference "BlackLabsSwiftUIColor" */;
 			productName = BlackLabsSwiftUIColor;
+		};
+		62BD84CB291B8CDA009D0B0E /* RefreshableScrollView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62BD84CA291B8CDA009D0B0E /* XCRemoteSwiftPackageReference "RefreshableScrollView" */;
+			productName = RefreshableScrollView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

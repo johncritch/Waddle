@@ -9,11 +9,27 @@ import Firebase
 
 struct EventService {
     
-    func uploadEvent(caption: String, completion: @escaping(Bool) -> Void) {
+    func uploadEvent(caption: String,
+                     title: String,
+                     date: Date,
+                     city: String,
+                     privateEvent: Bool,
+                     limited: Bool,
+                     maxNumber: Int,
+                     tags: [Tag],
+                     completion: @escaping(Bool) -> Void
+    ) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
         let data = ["uid": uid,
                     "caption": caption,
+                    "title": title,
+                    "date": date,
+                    "city": city,
+                    "privateEvent": privateEvent,
+                    "limited": limited,
+                    "maxNumber": maxNumber,
+                    "tags": transformArray(tags: tags),
                     "joined": 0,
                     "timestamp": Timestamp(date: Date())
         ] as [String: Any]
@@ -51,6 +67,18 @@ struct EventService {
                 let events = documents.compactMap({ try? $0.data(as: Event.self )})
                 completion(events.sorted(by: { $0.timestamp.dateValue() > $1.timestamp.dateValue() }))
             }
+    }
+    
+    func transformArray(tags: [Tag]) -> [Dictionary<String, Any>] {
+        var newList = [Dictionary<String, Any>]()
+        
+        for tag in tags {
+            var tempDictionary = Dictionary<String, Any>()
+            tempDictionary["id"] = tag.id
+            tempDictionary["title"] = tag.title
+            newList.append(tempDictionary)
+        }
+        return newList
     }
 }
 

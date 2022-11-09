@@ -11,12 +11,28 @@ class UploadEventViewModel: ObservableObject {
     @Published var didUploadEvent = false
     let service = EventService()
     
-    func uploadEvent(withCaption caption: String) {
-        service.uploadEvent(caption: caption) { success in
+    func uploadEvent(withCaption caption: String,
+                     withTitle title: String,
+                     withDate date: Date,
+                     withCity city: String,
+                     withPrivateEvent privateEvent: Bool,
+                     withLimited limited: Bool,
+                     withMaxNumber maxNumber: Int,
+                     withTags tags: [Tag]
+    ) {
+        service.uploadEvent(caption: caption,
+                            title: title,
+                            date: date,
+                            city: city,
+                            privateEvent: privateEvent,
+                            limited: limited,
+                            maxNumber: maxNumber,
+                            tags: tags
+        ) { success in
             if success {
                 self.didUploadEvent = true
             } else {
-                // show error message to user
+                print("DEBUG: Not successful upload")
             }
         }
     }

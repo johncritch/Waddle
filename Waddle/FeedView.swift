@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RefreshableScrollView
 
 struct FeedView: View {
     @State private var selectedFilter: FeedFilterViewModel = .friends
@@ -19,17 +20,21 @@ struct FeedView: View {
             FeedFilterBar
             
             ZStack(alignment: .bottomTrailing) {
-                ScrollView {
+                RefreshableScrollView {
                     LazyVStack {
-                        PullToRefreshView {
-                            viewModel.fetchEvents()
-                        }
-                        
                         ForEach(viewModel.events) { event in
                             EventsRowView(event: event)
                         }
                     }
                 }
+                .refreshable {
+                      do {
+                        // Sleep for 1 seconds
+                        try await Task.sleep(nanoseconds: 1 * 1_000_000_000)
+                      } catch {}
+                      
+                    viewModel.fetchEvents()
+                    }
                 
                 Button {
                     showNewEventView.toggle()

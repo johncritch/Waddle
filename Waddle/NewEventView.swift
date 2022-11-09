@@ -11,17 +11,17 @@ import Kingfisher
 struct NewEventView: View {
     @State private var title = ""
     @State private var caption = ""
-    @State private var day = Date()
+    @State private var date = Date()
     @State private var city = "Provo"
     @State private var privateEvent = false
     @State private var limitedCapacity = false
     @State private var maxNumberJoin: Int = 0
+    @State private var tags = [Tag]()
     
     @State private var showTitleInputArea = false
     @State private var showCaptionInputArea = false
     @State private var showCityInputArea = false
     @State private var showTagsMenu = false
-    @State private var tags = [Tag]()
     @State private var selectedTags = [Tag]()
     
     @Environment(\.presentationMode) var presentationMode
@@ -39,7 +39,15 @@ struct NewEventView: View {
                 }
                 Spacer()
                 Button {
-                    viewModel.uploadEvent(withCaption: caption)
+                    viewModel.uploadEvent(withCaption: caption,
+                                          withTitle: title,
+                                          withDate: date,
+                                          withCity: city,
+                                          withPrivateEvent: privateEvent,
+                                          withLimited: limitedCapacity,
+                                          withMaxNumber: maxNumberJoin,
+                                          withTags: tags
+                    )
                 } label: {
                     Text("Publish")
                         .bold()
@@ -77,7 +85,7 @@ struct NewEventView: View {
                                 Text(city)
                             }
                             Spacer()
-                            DatePicker("", selection: $day, displayedComponents: [.date])
+                            DatePicker("", selection: $date, displayedComponents: [.date])
                             
                         }
                         .padding(.horizontal, 24)
