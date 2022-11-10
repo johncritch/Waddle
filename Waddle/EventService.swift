@@ -69,11 +69,11 @@ struct EventService {
             }
     }
     
-    func transformArray(tags: [Tag]) -> [Dictionary<String, Any>] {
-        var newList = [Dictionary<String, Any>]()
+    func transformArray(tags: [Tag]) -> [[String: Any]] {
+        var newList = [[String: Any]]()
         
         for tag in tags {
-            var tempDictionary = Dictionary<String, Any>()
+            var tempDictionary = [String: Any]()
             tempDictionary["id"] = tag.id
             tempDictionary["title"] = tag.title
             newList.append(tempDictionary)
