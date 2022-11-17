@@ -46,48 +46,73 @@ struct EventsRowView: View {
                             }
                             
                             //Event Details
+                            Text(viewModel.event.title)
+                                .font(.subheadline)
+                                .multilineTextAlignment(.leading)
+                            
                             Text(viewModel.event.caption)
+                                .font(.subheadline)
+                                .multilineTextAlignment(.leading)
+                            Text(viewModel.event.city)
+                                .font(.subheadline)
+                                .multilineTextAlignment(.leading)
+                            Text(viewModel.event.date.description)
+                                .font(.subheadline)
+                                .multilineTextAlignment(.leading)
+                            Text(String(viewModel.event.maxNumber))
                                 .font(.subheadline)
                                 .multilineTextAlignment(.leading)
                         }
                     }
                 }
                 //Action Buttons
-                HStack {
-                    Button {
-                        // action goes here
-                    } label: {
-                        Image(systemName: "bubble.left")
-                            .font(.subheadline)
+                VStack {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(viewModel.event.tags) { tag in
+                                TagView(selectedTags: .constant([]), tag: tag, doesChangeColor: false)
+                            }
+                            Spacer()
+                        }
+                        .padding(.leading)
                     }
-                    Spacer()
-                    Button {
-                        // action goes here
-                    } label: {
-                        Image(systemName: "arrow.2.squarepath")
-                            .font(.subheadline)
+                    HStack {
+                        Button {
+                            // action goes here
+                        } label: {
+                            Image(systemName: "bubble.left")
+                                .font(.subheadline)
+                        }
+                        Spacer()
+                        Button {
+                            // action goes here
+                        } label: {
+                            Image(systemName: "arrow.2.squarepath")
+                                .font(.subheadline)
+                        }
+                        Spacer()
+                        Button {
+                            viewModel.event.didJoin ?? false ?
+                            viewModel.unjoinEvent() :
+                            viewModel.joinEvent()
+                        } label: {
+                            Image(systemName: viewModel.event.didJoin ?? false ? "heart.fill" : "heart")
+                                .font(.subheadline)
+                                .foregroundColor(viewModel.event.didJoin ?? false ? .red : .gray)
+                        }
+                        Spacer()
+                        Button {
+                            // action goes here
+                        } label: {
+                            Image(systemName: "bookmark")
+                                .font(.subheadline)
+                        }
+                        
                     }
-                    Spacer()
-                    Button {
-                        viewModel.event.didJoin ?? false ?
-                        viewModel.unjoinEvent() :
-                        viewModel.joinEvent()
-                    } label: {
-                        Image(systemName: viewModel.event.didJoin ?? false ? "heart.fill" : "heart")
-                            .font(.subheadline)
-                            .foregroundColor(viewModel.event.didJoin ?? false ? .red : .gray)
-                    }
-                    Spacer()
-                    Button {
-                        // action goes here
-                    } label: {
-                        Image(systemName: "bookmark")
-                            .font(.subheadline)
-                    }
-                    
-                }
-                .padding()
+                    .padding(.horizontal)
+                    .padding(.top)
                 .foregroundColor(.gray)
+                }
             }
             .padding(30)
         }

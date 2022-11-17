@@ -70,7 +70,7 @@ struct EventService {
     }
     
     func transformArray(tags: [Tag]) -> [[String: Any]] {
-        var newList = [[String: Any]]()
+        var newList: [[String: Any]] = []
         
         for tag in tags {
             var tempDictionary = [String: Any]()

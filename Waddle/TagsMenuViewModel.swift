@@ -58,7 +58,7 @@ class TagsMenuViewModel: ObservableObject {
     }
 }
 
-struct Tag: Identifiable, Equatable {
+struct Tag: Identifiable, Equatable, Codable {
     var id: Int
     var title: String
 }

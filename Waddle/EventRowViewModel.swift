@@ -14,6 +14,7 @@ class EventRowViewModel: ObservableObject {
     init(event: Event) {
         self.event = event
         checkIfUserJoinedEvent()
+        print("DEBUG: \(event)")
     }
     
     func joinEvent() {
