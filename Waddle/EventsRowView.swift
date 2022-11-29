@@ -10,9 +10,11 @@ import Firebase
 
 struct EventsRowView: View {
     @ObservedObject var viewModel: EventRowViewModel
+    @Binding var needsRefresh: Bool
     
-    init(event: Event) {
+    init(event: Event, needsRefresh: Binding<Bool>) {
         self.viewModel = EventRowViewModel(event: event)
+        self._needsRefresh = needsRefresh
     }
     
     var body: some View {
@@ -102,9 +104,10 @@ struct EventsRowView: View {
                         }
                         Spacer()
                         Button {
-                            // action goes here
+                            viewModel.deleteEvent()
+                            needsRefresh = true
                         } label: {
-                            Image(systemName: "bookmark")
+                            Image(systemName: "trash")
                                 .font(.subheadline)
                         }
                         
@@ -122,7 +125,7 @@ struct EventsRowView: View {
 
 struct EventsRowView_Previews: PreviewProvider {
     static var previews: some View {
-         EventsRowView(event: TestingVariables().event)
+        EventsRowView(event: TestingVariables().event, needsRefresh: .constant(false))
             .frame(minHeight: 200, maxHeight: 300)
     }
 }

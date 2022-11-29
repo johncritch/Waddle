@@ -11,6 +11,7 @@ import RefreshableScrollView
 struct FeedView: View {
     @State private var selectedFilter: FeedFilterViewModel = .friends
     @State private var showNewEventView: Bool = false
+    @State var needsRefresh: Bool = false
     @ObservedObject var viewModel = FeedViewModel()
     @Environment(\.presentationMode) var mode
     @Namespace var animation
@@ -23,7 +24,7 @@ struct FeedView: View {
                 RefreshableScrollView {
                     LazyVStack {
                         ForEach(viewModel.events) { event in
-                            EventsRowView(event: event)
+                            EventsRowView(event: event, needsRefresh: $needsRefresh)
                         }
                     }
                 }
@@ -49,11 +50,19 @@ struct FeedView: View {
                 .foregroundColor(.white)
                 .clipShape(Circle())
                 .padding()
-                .fullScreenCover(isPresented: $showNewEventView) {
+                .fullScreenCover(isPresented: $showNewEventView, onDismiss: refreshView) {
                     NewEventView()
                 }
             }
         }
+        .onChange(of: needsRefresh) { _ in
+            refreshView()
+        }
+    }
+    
+    private func refreshView() {
+        viewModel.fetchEvents()
+        needsRefresh = false
     }
 }
 

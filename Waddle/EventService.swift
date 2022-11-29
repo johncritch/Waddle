@@ -46,6 +46,22 @@ struct EventService {
             }
     }
     
+    func deleteEvent(_ event: Event, completion: @escaping() -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let eventId = event.id else { return }
+        
+        if event.uid != uid {
+            print("DEBUG: Not the current user")
+            return
+        }
+        
+        let eventRenf = Firestore.firestore().collection("events").document(eventId)
+        
+        eventRenf.delete { _ in
+            completion()
+        }
+    }
+    
     func fetchEvents(completion: @escaping([Event]) -> Void) {
         Firestore.firestore().collection("events")
             .order(by: "timestamp", descending: true)
@@ -145,7 +161,7 @@ extension EventService {
     func fetchJoinedEvents(forUid uid: String, completion: @escaping([Event]) -> Void) {
         var events = [Event]()
         
-        print("DEBUG: Joined Events: \(events)")
+//        print("DEBUG: Joined Events: \(events)")
         
         Firestore.firestore().collection("users")
             .document(uid)
@@ -161,7 +177,7 @@ extension EventService {
                         .getDocument { snapshot, _ in
                             guard let event = try? snapshot?.data(as: Event.self) else { return }
                             events.append(event)
-                            print("DEBUG: Joined Events: \(events)")
+//                            print("DEBUG: Joined Events: \(events)")
                             completion(events)
                         }
                 }

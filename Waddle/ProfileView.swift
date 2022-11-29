@@ -7,12 +7,14 @@
 
 import SwiftUI
 import Kingfisher
+import RefreshableScrollView
 
 struct ProfileView: View {
     @State private var selectedFilter: EventFilterViewModel = .events
     @ObservedObject var viewModel: ProfileViewModel
     @Environment(\.presentationMode) var mode
     @Namespace var animation
+    @State var needsRefresh: Bool = false
     
     init(user: User) {
         self.viewModel = ProfileViewModel(user: user)
@@ -163,12 +165,21 @@ extension ProfileView {
     }
     
     var eventsView: some View {
-        ScrollView {
+        RefreshableScrollView {
             LazyVStack {
                 ForEach(viewModel.events(forFilter: self.selectedFilter)) { event in
-                    EventsRowView(event: event)
+                    EventsRowView(event: event, needsRefresh: $needsRefresh)
                 }
             }
+        }
+        .refreshable {
+              do {
+                // Sleep for 1 seconds
+                try await Task.sleep(nanoseconds: 1 * 1_000_000_000)
+              } catch {}
+              
+            viewModel.fetchUserEvents()
+            viewModel.fetchJoinedEvents()
         }
     }
 }

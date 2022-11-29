@@ -14,7 +14,6 @@ class EventRowViewModel: ObservableObject {
     init(event: Event) {
         self.event = event
         checkIfUserJoinedEvent()
-        print("DEBUG: \(event)")
     }
     
     func joinEvent() {
@@ -26,6 +25,12 @@ class EventRowViewModel: ObservableObject {
     func unjoinEvent() {
         service.unjoinEvent(event) {
             self.event.didJoin = false
+        }
+    }
+    
+    func deleteEvent() {
+        service.deleteEvent(event) {
+            print("DEBUG: Delete successful")
         }
     }
     
