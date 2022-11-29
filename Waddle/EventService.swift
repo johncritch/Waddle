@@ -161,7 +161,7 @@ extension EventService {
     func fetchJoinedEvents(forUid uid: String, completion: @escaping([Event]) -> Void) {
         var events = [Event]()
         
-//        print("DEBUG: Joined Events: \(events)")
+        print("DEBUG: Joined Events: \(events)")
         
         Firestore.firestore().collection("users")
             .document(uid)
@@ -177,7 +177,7 @@ extension EventService {
                         .getDocument { snapshot, _ in
                             guard let event = try? snapshot?.data(as: Event.self) else { return }
                             events.append(event)
-//                            print("DEBUG: Joined Events: \(events)")
+                            print("DEBUG: Joined Events: \(events)")
                             completion(events)
                         }
                 }

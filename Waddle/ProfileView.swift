@@ -15,7 +15,7 @@ struct ProfileView: View {
     @Environment(\.presentationMode) var mode
     @Namespace var animation
     @State var needsRefresh: Bool = false
-    
+
     init(user: User) {
         self.viewModel = ProfileViewModel(user: user)
     }
@@ -36,6 +36,10 @@ struct ProfileView: View {
             Spacer()
         }
         .navigationBarHidden(true)
+        .onAppear() {
+            viewModel.fetchUserEvents()
+            viewModel.fetchJoinedEvents()
+        }
     }
 }
 
@@ -178,8 +182,8 @@ extension ProfileView {
                 try await Task.sleep(nanoseconds: 1 * 1_000_000_000)
               } catch {}
               
-            viewModel.fetchUserEvents()
             viewModel.fetchJoinedEvents()
+            viewModel.fetchUserEvents()
         }
     }
 }

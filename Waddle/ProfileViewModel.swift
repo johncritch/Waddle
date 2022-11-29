@@ -32,7 +32,7 @@ class ProfileViewModel: ObservableObject {
         case .replies:
             return events
         case .joined:
-            print("DEBUG: joined events: \(joinedEvents)")
+//            print("DEBUG: joined events: \(joinedEvents)")
             return joinedEvents
         }
     }
@@ -53,6 +53,7 @@ class ProfileViewModel: ObservableObject {
         
         service.fetchJoinedEvents(forUid: uid) { events in
             self.joinedEvents = events
+            print("DEBUG: (2) Joined events\(self.joinedEvents)")
             
             for i in 0..<events.count {
                 let uid = events[i].uid
@@ -61,6 +62,8 @@ class ProfileViewModel: ObservableObject {
                     self.joinedEvents[i].user = user
                 }
             }
+            return
         }
+        self.joinedEvents = []
     }
 }

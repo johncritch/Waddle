@@ -28,9 +28,39 @@ struct EventsRowView: View {
                 
                 if let user = viewModel.event.user {
                     //Profile
-                    HStack(alignment: .top, spacing: 12) {
-                        ProfileImage(image: user.profileImageUrl)
-                            .frame(width: 56, height: 56)
+                    HStack(alignment: .top, spacing: 10) {
+                        VStack (alignment: .center) {
+                            ProfileImage(image: user.profileImageUrl)
+                                .frame(width: 70, height: 70)
+                            Text(viewModel.event.date.formatted(.dateTime.weekday(.wide)))
+                            Text(viewModel.event.date.formatted(.dateTime.day().month()))
+                                .multilineTextAlignment(.center)
+                                .font(.caption)
+                            Divider()
+                            Text("Joined")
+                                .font(.caption)
+                            HStack {
+                                Button {
+                                    // action goes here
+                                } label: {
+                                    Text("\(viewModel.event.joined)")
+                                        .font(.caption)
+                                }
+                                .buttonStyle(.bordered)
+                                .tint(.blue)
+                                Text("/")
+                                Button {
+                                    // action goes here
+                                } label: {
+                                    Text("\(viewModel.event.maxNumber)")
+                                        .font(.caption)
+                                }
+                                .buttonStyle(.bordered)
+                                .tint(.blue)
+
+                            }
+                        }
+                        .frame(width: 80)
                         
                         //User
                         VStack(alignment: .leading, spacing: 4) {
@@ -56,9 +86,6 @@ struct EventsRowView: View {
                                 .font(.subheadline)
                                 .multilineTextAlignment(.leading)
                             Text(viewModel.event.city)
-                                .font(.subheadline)
-                                .multilineTextAlignment(.leading)
-                            Text(viewModel.event.date.description)
                                 .font(.subheadline)
                                 .multilineTextAlignment(.leading)
                             Text(String(viewModel.event.maxNumber))

@@ -19,7 +19,7 @@ struct TestingVariables {
                       title: "This is the title",
                       timestamp: Timestamp(date: Date()),
                       uid: "KY3W8mKHt2Oyp5J7dH4RGOTyjPn1",
-                      joined: 24,
+                      joined: 4,
                       city: "Provo",
                       date: Date(),
                       limited: false,
