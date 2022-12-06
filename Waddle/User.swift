@@ -15,6 +15,7 @@ struct User: Identifiable, Decodable {
     let last: String
     let profileImageUrl: String
     let email: String
+    var doesFollow: Bool? = false
     
     var fullname: String {
         return first + " " + last

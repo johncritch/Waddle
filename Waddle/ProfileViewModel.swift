@@ -10,19 +10,21 @@ import Foundation
 class ProfileViewModel: ObservableObject {
     @Published var events = [Event]()
     @Published var joinedEvents = [Event]()
+    @Published var user: User
     
     private let service = EventService()
     private let userService = UserService()
-    let user: User
+    
     
     init(user: User) {
         self.user = user
         self.fetchUserEvents()
         self.fetchJoinedEvents()
+        checkIfUserFollowsUser()
     }
     
     var actionButtonTitle: String {
-        return user.isCurrentUser ? "Edit Profile" : "Follow"
+        return user.isCurrentUser ? "Edit Profile" : user.doesFollow ?? false ? "Unfollow" : "Follow"
     }
     
     func events(forFilter filter: EventFilterViewModel) -> [Event] {
@@ -34,6 +36,18 @@ class ProfileViewModel: ObservableObject {
         case .joined:
 //            print("DEBUG: joined events: \(joinedEvents)")
             return joinedEvents
+        }
+    }
+    
+    func followUser() {
+        service.followUser(user) {
+            self.user.doesFollow = true
+        }
+    }
+    
+    func unfollowUser() {
+        service.unfollowUser(user) {
+            self.user.doesFollow = false
         }
     }
     
@@ -65,5 +79,13 @@ class ProfileViewModel: ObservableObject {
             return
         }
         self.joinedEvents = []
+    }
+    
+    func checkIfUserFollowsUser() {
+        service.checkIfUserFollowsUser(user) { doesFollow in
+            if doesFollow {
+                self.user.doesFollow = true
+            }
+        }
     }
 }

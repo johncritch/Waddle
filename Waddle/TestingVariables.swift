@@ -22,7 +22,7 @@ struct TestingVariables {
                       joined: 4,
                       city: "Provo",
                       date: Date(),
-                      limited: false,
+                      limited: true,
                       privateEvent: false,
                       maxNumber: 8,
                       tags: [Tag(id: 1, title: "Adventure")],

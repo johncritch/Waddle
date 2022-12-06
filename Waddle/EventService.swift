@@ -101,6 +101,82 @@ struct EventService {
 // MARK: - Join
 
 extension EventService {
+    
+    func followUser(_ user: User, completion: @escaping() -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let userId = user.id else { return }
+        
+        let userFollowingRef = Firestore.firestore().collection("users").document(uid).collection("user-following")
+//        let userFollowingRenf = Firestore.firestore().collection("users").document(userId)
+        let userFollowedRef = Firestore.firestore().collection("users").document(userId).collection("user-followers")
+//        let userFollowedRenf = Firestore.firestore().collection("users").document(uid)
+        
+        userFollowingRef.document(userId).setData([:]) { _ in
+            completion()
+        }
+        userFollowedRef.document(uid).setData([:]) { _ in
+            completion()
+        }
+        
+//        userFollowingRenf.getDocument { snapshot, _ in
+//            if let data = snapshot {
+//                if let numFollowers: Int = data["followers"] as? Int {
+//                    Firestore.firestore().collection("events").document(eventId)
+//                        .updateData(["joined": numJoined + 1]) { _ in
+//                            userJoinedRef.document(eventId).setData([:]) { _ in
+//                                completion()
+//                            }
+//                        }
+//                }
+//            }
+//        }
+    }
+    
+    func unfollowUser(_ user: User, completion: @escaping() -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let userId = user.id else { return }
+        
+        let userFollowingRef = Firestore.firestore().collection("users").document(uid).collection("user-following")
+//        let userFollowingRenf = Firestore.firestore().collection("users").document(userId)
+        let userFollowedRef = Firestore.firestore().collection("users").document(userId).collection("user-followers")
+//        let userFollowedRenf = Firestore.firestore().collection("users").document(uid)
+        
+        userFollowingRef.document(userId).delete { _ in
+            completion()
+        }
+        userFollowedRef.document(uid).delete { _ in
+            completion()
+        }
+        
+//        eventRenf.getDocument { snapshot, _ in
+//            if let data = snapshot {
+//                if let numJoined: Int = data["joined"] as? Int {
+//                    guard numJoined > 0 else { return }
+//                    Firestore.firestore().collection("events").document(eventId)
+//                        .updateData(["joined": numJoined - 1]) { _ in
+//                            userJoinedRef.document(eventId).delete { _ in
+//                                completion()
+//                            }
+//                        }
+//                }
+//            }
+//        }
+    }
+    
+    func checkIfUserFollowsUser(_ user: User, completion: @escaping(Bool) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let userId = user.id else { return }
+        
+        Firestore.firestore().collection("users")
+            .document(uid)
+            .collection("user-following")
+            .document(userId)
+            .getDocument { snapshot, _ in
+                guard let snapshot = snapshot else { return }
+                completion(snapshot.exists)
+            }
+    }
+    
     func joinEvent(_ event: Event, completion: @escaping() -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         guard let eventId = event.id else { return }
@@ -182,5 +258,47 @@ extension EventService {
                         }
                 }
             }
+    }
+    
+    func updateEvent(_ event: Event,
+                     caption: String,
+                     title: String,
+                     date: Date,
+                     city: String,
+                     privateEvent: Bool,
+                     limited: Bool,
+                     maxNumber: Int,
+                     tags: [Tag],
+                     completion: @escaping() -> Void) {
+        
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let eventId = event.id else { return }
+        
+        let updatedData = ["uid": uid,
+                    "caption": caption,
+                    "title": title,
+                    "date": date,
+                    "city": city,
+                    "privateEvent": privateEvent,
+                    "limited": limited,
+                    "maxNumber": maxNumber,
+                    "tags": transformArray(tags: tags),
+                    "joined": 0,
+                    "timestamp": Timestamp(date: Date())
+        ] as [String: Any]
+    
+        let eventRenf = Firestore.firestore().collection("events").document(eventId)
+        
+        eventRenf.getDocument { snapshot, _ in
+            Firestore.firestore().collection("events").document(eventId)
+                .updateData(updatedData) { error in
+                    if let error = error {
+                        print("DEBUG: Failed to upload the event with error: \(error.localizedDescription)")
+                        completion()
+                        return
+                    }
+                    completion()
+                }
+        }
     }
 }

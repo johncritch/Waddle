@@ -36,4 +36,29 @@ class UploadEventViewModel: ObservableObject {
             }
         }
     }
+    
+    func updateEvent(withEvent event: Event,
+                     withCaption caption: String,
+                     withTitle title: String,
+                     withDate date: Date,
+                     withCity city: String,
+                     withPrivateEvent privateEvent: Bool,
+                     withLimited limited: Bool,
+                     withMaxNumber maxNumber: Int,
+                     withTags tags: [Tag]
+        ) {
+        service.updateEvent(event,
+                            caption: caption,
+                            title: title,
+                            date: date,
+                            city: city,
+                            privateEvent: privateEvent,
+                            limited: limited,
+                            maxNumber: maxNumber,
+                            tags: tags
+                            
+        ) {
+            self.didUploadEvent = true
+        }
+    }
 }

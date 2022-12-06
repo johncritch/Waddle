@@ -6,9 +6,32 @@
 //
 
 import SwiftUI
+import CoreLocation
+import CoreLocationUI
+
+class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
+    let manager = CLLocationManager()
+
+    @Published var location: CLLocationCoordinate2D?
+
+    override init() {
+        super.init()
+        manager.delegate = self
+    }
+
+    func requestLocation() {
+        manager.requestLocation()
+    }
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        location = locations.first?.coordinate
+    }
+}
 
 struct ExploreView: View {
     @ObservedObject var viewModel = ExploreViewModel()
+    @StateObject var locationManager = LocationManager()
+    
     var body: some View {
         VStack {
             SearchBar(text: $viewModel.searchText)
@@ -24,9 +47,19 @@ struct ExploreView: View {
                     }
                 }
             }
+            LocationButton {
+                locationManager.requestLocation()
+            }
+            .frame(height: 44)
+            .padding()
         }
         .navigationTitle("Explore")
         .navigationBarTitleDisplayMode(.inline)
+//        .onAppear {
+//            if locationManager.location == nil {
+//                locationManager.requestLocation()
+//            }
+//        }
     }
 }
 

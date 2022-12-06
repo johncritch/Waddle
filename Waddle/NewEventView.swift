@@ -8,25 +8,40 @@
 import SwiftUI
 import Kingfisher
 
-struct NewEventView: View {
-    @State private var title = ""
-    @State private var caption = ""
-    @State private var date = Date()
-    @State private var city = "Provo"
-    @State private var privateEvent = false
-    @State private var limitedCapacity = false
-    @State private var maxNumberJoin: Int = 0
-    @State private var tags = [Tag]()
+class NewEvent: ObservableObject {
+    @Published var title: String = ""
+    @Published var caption = ""
+    @Published var date = Date()
+    @Published var city = "Provo"
+    @Published var privateEvent = false
+    @Published var limitedCapacity = false
+    @Published var maxNumberJoin: Int = 0
+    @Published var tags = [Tag]()
     
-    @State private var showTitleInputArea = false
-    @State private var showCaptionInputArea = false
-    @State private var showCityInputArea = false
+    func updatedVariables(event: Event) {
+        title = event.title
+        caption = event.caption
+        date = event.date
+        city = event.city
+        privateEvent = event.privateEvent
+        limitedCapacity = event.limited
+        maxNumberJoin = event.maxNumber
+        tags = event.tags
+    }
+}
+
+struct NewEventView: View {
+    
+    var event: Event?
+    
+    @ObservedObject var newEvent = NewEvent()
     @State private var showTagsMenu = false
     @State private var selectedTags = [Tag]()
     
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var authViewModel: AuthViewModel
     @ObservedObject var viewModel = UploadEventViewModel()
+    
     
     var body: some View {
         VStack {
@@ -39,17 +54,32 @@ struct NewEventView: View {
                 }
                 Spacer()
                 Button {
-                    viewModel.uploadEvent(withCaption: caption,
-                                          withTitle: title,
-                                          withDate: date,
-                                          withCity: city,
-                                          withPrivateEvent: privateEvent,
-                                          withLimited: limitedCapacity,
-                                          withMaxNumber: maxNumberJoin,
-                                          withTags: tags
-                    )
+                    if event != nil {
+                        if let updatedEvent = event {
+                            viewModel.updateEvent(withEvent: updatedEvent,
+                                                  withCaption: newEvent.caption,
+                                                  withTitle: newEvent.title,
+                                                  withDate: newEvent.date,
+                                                  withCity: newEvent.city,
+                                                  withPrivateEvent: newEvent.privateEvent,
+                                                  withLimited: newEvent.limitedCapacity,
+                                                  withMaxNumber: newEvent.maxNumberJoin,
+                                                  withTags: newEvent.tags
+                            )
+                        }
+                    } else {
+                        viewModel.uploadEvent(withCaption: newEvent.caption,
+                                              withTitle: newEvent.title,
+                                              withDate: newEvent.date,
+                                              withCity: newEvent.city,
+                                              withPrivateEvent: newEvent.privateEvent,
+                                              withLimited: newEvent.limitedCapacity,
+                                              withMaxNumber: newEvent.maxNumberJoin,
+                                              withTags: newEvent.tags
+                        )
+                    }
                 } label: {
-                    Text("Publish")
+                    Text((event != nil) ? "Update" : "Publish")
                         .bold()
                         .padding(.horizontal)
                         .padding(.vertical, 8)
@@ -70,11 +100,11 @@ struct NewEventView: View {
                 VStack {
                     
                     VStack(alignment: .leading) {
-                        TextField("Title goes here..", text: $title)
+                        TextField("Title goes here..", text: $newEvent.title)
                             .font(.title2)
                             .padding(.horizontal, 24)
                             .padding(.top, 20)
-                        TextArea("Description goes here..", text: $caption)
+                        TextArea("Description goes here..", text: $newEvent.caption)
                             .padding(.horizontal, 18)
                         tagsRow
                             .padding(.horizontal, 24)
@@ -82,10 +112,10 @@ struct NewEventView: View {
                             Button {
                                 // City Picker
                             } label: {
-                                Text(city)
+                                Text(newEvent.city)
                             }
                             Spacer()
-                            DatePicker("", selection: $date, displayedComponents: [.date])
+                            DatePicker("", selection: $newEvent.date, displayedComponents: [.date])
                             
                         }
                         .padding(.horizontal, 24)
@@ -100,23 +130,6 @@ struct NewEventView: View {
                 }
             }
             .frame(maxHeight: 300)
-            .blur(radius: showTitleInputArea || showCityInputArea || showCaptionInputArea ? 8 : 0)
-            .onTapGesture {
-                withAnimation {
-                    showTitleInputArea = false
-                    showCaptionInputArea = false
-                    showCityInputArea = false
-                }
-            }
-            if showTitleInputArea {
-                InputArea(text: $title, inputName: "Title...")
-            }
-            if showCaptionInputArea {
-                InputArea(text: $caption, inputName: "Description...")
-            }
-            if showCityInputArea {
-                InputArea(text: $caption, inputName: "City...")
-            }
             
             eventMenu
         }
@@ -125,21 +138,21 @@ struct NewEventView: View {
     var eventMenu: some View {
         VStack {
             VStack(alignment: .leading) {
-                Toggle("Private Event?", isOn: $privateEvent)
+                Toggle("Private Event?", isOn: $newEvent.privateEvent)
                     .padding(.trailing, 170)
-                if privateEvent {
+                if newEvent.privateEvent {
                     Text("Only your friends will see this event.")
                         .font(.caption)
                         .foregroundColor(.gray)
                 }
-                Toggle("Limited Capacity?", isOn: $limitedCapacity)
+                Toggle("Limited Capacity?", isOn: $newEvent.limitedCapacity)
                 .padding(.trailing, 170)
             }
             .padding(.leading, 24)
-            if limitedCapacity {
+            if newEvent.limitedCapacity {
                 HStack(spacing: 30) {
                     Text("Maximum Capacity")
-                    Picker("Maximum Capacity", selection: $maxNumberJoin) {
+                    Picker("Maximum Capacity", selection: $newEvent.maxNumberJoin) {
                         ForEach(1..<100) {
                             Text("\($0)")
                         }
@@ -147,6 +160,13 @@ struct NewEventView: View {
                     Spacer()
                 }
                 .padding(.leading, 24)
+            }
+        }
+        .onAppear {
+            if event != nil {
+                if let updatedEvent = event {
+                    newEvent.updatedVariables(event: updatedEvent)
+                }
             }
         }
     }
@@ -157,28 +177,20 @@ struct NewEventView: View {
                 Button {
                     showTagsMenu = true
                 } label: {
-                    if tags.isEmpty {
-                        (Text(" Add a tag ") + Text(Image(systemName: "plus")) + Text("  "))
-                            .foregroundColor(.white)
-                            .frame(height: 30)
-                            .background(Color(.systemBlue))
-                            .clipShape(Capsule())
-                    } else {
-                        Capsule()
-                            .fill(Color(.systemBlue))
-                            .frame(width: 30, height: 30)
-                            .clipShape(Capsule())
-                            .overlay {
-                                Image(systemName: "plus")
-                                    .foregroundColor(.white)
-                            }
+                    if newEvent.tags.isEmpty {
+                        Text("Add a tag")
+                            .frame(height: 15)
                     }
+                    Image(systemName: "plus")
+                        .frame(height: 15)
                 }
+                .buttonStyle(.borderedProminent)
+                .buttonBorderShape(.roundedRectangle(radius: 30))
                 .sheet(isPresented: $showTagsMenu) {
-                    TagsMenuView(tags: $tags)
+                    TagsMenuView(tags: $newEvent.tags)
                 }
                 
-                ForEach(tags, id: \.id) { tag in
+                ForEach(newEvent.tags, id: \.id) { tag in
                     TagView(selectedTags: $selectedTags, tag: tag)
                 }
             }
@@ -188,7 +200,7 @@ struct NewEventView: View {
 
 struct NewEventView_Previews: PreviewProvider {
     static var previews: some View {
-        NewEventView()
+        NewEventView(event: TestingVariables().event)
             .environmentObject(AuthViewModel())
     }
 }

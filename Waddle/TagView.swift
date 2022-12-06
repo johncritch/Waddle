@@ -20,12 +20,13 @@ struct TagView: View {
                 self.selectedTags.append(tag)
             }
         } label: {
-            Text("\(tag.title)    ")
+            Text(tag.title)
                 .foregroundColor(.white)
-                .frame(height: 30)
-                .background(selectedTags.contains(tag) && doesChangeColor == true ? Color(.systemGray4) : Color(.systemBlue))
-                .clipShape(Capsule())
+                .frame(height: 15)
         }
+        .buttonStyle(.borderedProminent)
+        .buttonBorderShape(.roundedRectangle(radius: 30))
+        .tint(selectedTags.contains(tag) && doesChangeColor == true ? .systemGray4 : .systemBlue)
     }
 }
 

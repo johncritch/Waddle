@@ -11,6 +11,8 @@ import Firebase
 struct EventsRowView: View {
     @ObservedObject var viewModel: EventRowViewModel
     @Binding var needsRefresh: Bool
+    @State private var showAttendees: Bool = false
+    @State private var showUpdateEvent: Bool = false
     
     init(event: Event, needsRefresh: Binding<Bool>) {
         self.viewModel = EventRowViewModel(event: event)
@@ -30,35 +32,18 @@ struct EventsRowView: View {
                     //Profile
                     HStack(alignment: .top, spacing: 10) {
                         VStack (alignment: .center) {
-                            ProfileImage(image: user.profileImageUrl)
-                                .frame(width: 70, height: 70)
+                            NavigationLink {
+                                ProfileView(user: user)
+                            } label: {
+                                ProfileImage(image: user.profileImageUrl)
+                                    .frame(width: 70, height: 70)
+                            }
                             Text(viewModel.event.date.formatted(.dateTime.weekday(.wide)))
+                                .font(.subheadline)
                             Text(viewModel.event.date.formatted(.dateTime.day().month()))
                                 .multilineTextAlignment(.center)
                                 .font(.caption)
-                            Divider()
-                            Text("Joined")
-                                .font(.caption)
-                            HStack {
-                                Button {
-                                    // action goes here
-                                } label: {
-                                    Text("\(viewModel.event.joined)")
-                                        .font(.caption)
-                                }
-                                .buttonStyle(.bordered)
-                                .tint(.blue)
-                                Text("/")
-                                Button {
-                                    // action goes here
-                                } label: {
-                                    Text("\(viewModel.event.maxNumber)")
-                                        .font(.caption)
-                                }
-                                .buttonStyle(.bordered)
-                                .tint(.blue)
 
-                            }
                         }
                         .frame(width: 80)
                         
@@ -76,19 +61,12 @@ struct EventsRowView: View {
                                     .foregroundColor(.gray)
                                     .font(.caption)
                             }
-                            
                             //Event Details
                             Text(viewModel.event.title)
-                                .font(.subheadline)
+                                .font(.headline)
                                 .multilineTextAlignment(.leading)
                             
                             Text(viewModel.event.caption)
-                                .font(.subheadline)
-                                .multilineTextAlignment(.leading)
-                            Text(viewModel.event.city)
-                                .font(.subheadline)
-                                .multilineTextAlignment(.leading)
-                            Text(String(viewModel.event.maxNumber))
                                 .font(.subheadline)
                                 .multilineTextAlignment(.leading)
                         }
@@ -103,50 +81,69 @@ struct EventsRowView: View {
                             }
                             Spacer()
                         }
-                        .padding(.leading)
+                        .padding(.leading, 5)
                     }
                     HStack {
-                        Button {
-                            // action goes here
-                        } label: {
-                            Image(systemName: "bubble.left")
-                                .font(.subheadline)
-                        }
-                        Spacer()
-                        Button {
-                            // action goes here
-                        } label: {
-                            Image(systemName: "arrow.2.squarepath")
-                                .font(.subheadline)
-                        }
-                        Spacer()
                         Button {
                             viewModel.event.didJoin ?? false ?
                             viewModel.unjoinEvent() :
                             viewModel.joinEvent()
                         } label: {
-                            Image(systemName: viewModel.event.didJoin ?? false ? "heart.fill" : "heart")
+                            Text(viewModel.event.didJoin ?? false ? "Joined" : "Join")
+                                .foregroundColor(viewModel.event.didJoin ?? false ? .green : .gray)
+                            Image(systemName: viewModel.event.didJoin ?? false ? "checkmark.square" : "square")
                                 .font(.subheadline)
-                                .foregroundColor(viewModel.event.didJoin ?? false ? .red : .gray)
+                                .foregroundColor(viewModel.event.didJoin ?? false ? .green : .gray)
                         }
-                        Spacer()
+                        .buttonStyle(.bordered)
+                        .tint(viewModel.event.didJoin ?? false ? .green : .gray)
+                        
                         Button {
-                            viewModel.deleteEvent()
-                            needsRefresh = true
+                            showAttendees.toggle()
                         } label: {
-                            Image(systemName: "trash")
-                                .font(.subheadline)
+                            Text(viewModel.event.limited ? "Attendees: Max \(viewModel.event.maxNumber)" : "Attendees")
+                        }
+                        .buttonStyle(.bordered)
+                        .tint(.blue)
+                        .sheet(isPresented: $showAttendees) {
+                            AttendeesView()
                         }
                         
+                        Spacer()
+                        
+                        if viewModel.event.uid == Auth.auth().currentUser?.uid {
+                            Button {
+                                showUpdateEvent.toggle()
+                            } label: {
+                                Image(systemName: "square.and.pencil")
+                                    .font(.subheadline)
+                                    .foregroundColor(.gray)
+                            }
+                            .fullScreenCover(isPresented: $showUpdateEvent, onDismiss: refreshView) {
+                                NewEventView(event: viewModel.event)
+                            }
+                            
+                            Button {
+                                viewModel.deleteEvent()
+                                needsRefresh = true
+                            } label: {
+                                Image(systemName: "trash")
+                                    .font(.subheadline)
+                                    .foregroundColor(.gray)
+                            }
+                        }
                     }
-                    .padding(.horizontal)
                     .padding(.top)
-                .foregroundColor(.gray)
+                    .padding(.leading, 5)
                 }
             }
             .padding(30)
         }
         .frame(maxHeight: 300)
+    }
+    
+    private func refreshView() {
+        needsRefresh = true
     }
 }
 
