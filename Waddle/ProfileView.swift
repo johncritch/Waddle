@@ -15,7 +15,6 @@ struct ProfileView: View {
     @Environment(\.presentationMode) var mode
     @Namespace var animation
     @State var needsRefresh: Bool = false
-    @State private var showProfileEditor: Bool = false
 
     init(user: User) {
         self.viewModel = ProfileViewModel(user: user)
@@ -85,37 +84,39 @@ extension ProfileView {
                 .padding(6)
                 .overlay(Circle().stroke(Color.gray, lineWidth: 0.75))
             
-            Button {
-                if viewModel.user.isCurrentUser {
-                    showProfileEditor.toggle()
-                } else {
+            if viewModel.user.isCurrentUser {
+                NavigationLink {
+                    EditProfileView()
+                } label: {
+                    Text("Edit Profile")
+                        .font(.subheadline).bold()
+                        .frame(width: 100, height: 24)
+                        .foregroundColor(.gray)
+                }
+                .buttonStyle(.bordered)
+                .buttonBorderShape(.roundedRectangle(radius: 30))
+                .tint(.gray)
+            } else {
+                Button {
                     viewModel.user.doesFollow ?? false ?
                     viewModel.unfollowUser() :
                     viewModel.followUser()
+                } label: {
+                    Text(viewModel.user.doesFollow ?? false ? "Following" : "Follow")
+                        .font(.subheadline).bold()
+                        .frame(width: 100, height: 24)
+                        .foregroundColor(viewModel.user.doesFollow ?? false ? .green : .gray)
+                    if viewModel.user.doesFollow ?? false {
+                        Image(systemName: "check")
+                    }
                 }
-            } label: {
-                Text(viewModel.user.isCurrentUser ? "Edit Profile" : viewModel.user.doesFollow ?? false ? "Following" : "Follow")
-                    .font(.subheadline).bold()
-                    .frame(width: 100, height: 24)
-                    .foregroundColor(viewModel.user.doesFollow ?? false ? .green : .gray)
-                if viewModel.user.doesFollow ?? false {
-                    Image(systemName: "check")
-                }
+                .buttonStyle(.bordered)
+                .buttonBorderShape(.roundedRectangle(radius: 30))
+                .tint(viewModel.user.doesFollow ?? false ? .green : .gray)
             }
-            .buttonStyle(.bordered)
-            .buttonBorderShape(.roundedRectangle(radius: 30))
-            .tint(viewModel.user.doesFollow ?? false ? .green : .gray)
-            .sheet(isPresented: $showProfileEditor, onDismiss: closeEditor) {
-                EditProfileView()
-            }
-
         }
         .padding(.trailing)
         
-    }
-    
-    func closeEditor() {
-        showProfileEditor = false
     }
     
     var userInfoDetails: some View {
@@ -150,7 +151,7 @@ extension ProfileView {
             .font(.caption)
             .foregroundColor(.gray)
             
-            UserStatsView()
+            UserStatsView(viewModel: viewModel)
             .padding(.vertical)
         }
         .padding(.horizontal)

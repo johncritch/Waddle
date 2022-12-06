@@ -260,6 +260,58 @@ extension EventService {
             }
     }
     
+    func fetchFollowers(forUid uid: String, completion: @escaping([User]) -> Void) {
+        var users = [User]()
+        
+        print("DEBUG: Followers: \(users)")
+        
+        Firestore.firestore().collection("users")
+            .document(uid)
+            .collection("user-followers")
+            .getDocuments { snapshot, _ in
+                guard let documents = snapshot?.documents else { return }
+                
+                documents.forEach { doc in
+                    let userId = doc.documentID
+                    
+                    Firestore.firestore().collection("users")
+                        .document(userId)
+                        .getDocument { snapshot, _ in
+                            guard let user = try? snapshot?.data(as: User.self) else { return }
+                            users.append(user)
+                            print("DEBUG: Followers: \(users)")
+                            completion(users)
+                        }
+                }
+            }
+    }
+    
+    func fetchFollowing(forUid uid: String, completion: @escaping([User]) -> Void) {
+        var users = [User]()
+        
+        print("DEBUG: Following: \(users)")
+        
+        Firestore.firestore().collection("users")
+            .document(uid)
+            .collection("user-following")
+            .getDocuments { snapshot, _ in
+                guard let documents = snapshot?.documents else { return }
+                
+                documents.forEach { doc in
+                    let userId = doc.documentID
+                    
+                    Firestore.firestore().collection("users")
+                        .document(userId)
+                        .getDocument { snapshot, _ in
+                            guard let user = try? snapshot?.data(as: User.self) else { return }
+                            users.append(user)
+                            print("DEBUG: Following: \(users)")
+                            completion(users)
+                        }
+                }
+            }
+    }
+    
     func updateEvent(_ event: Event,
                      caption: String,
                      title: String,

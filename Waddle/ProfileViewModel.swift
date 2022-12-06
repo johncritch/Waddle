@@ -10,6 +10,8 @@ import Foundation
 class ProfileViewModel: ObservableObject {
     @Published var events = [Event]()
     @Published var joinedEvents = [Event]()
+    @Published var followers = [User]()
+    @Published var following = [User]()
     @Published var user: User
     
     private let service = EventService()
@@ -21,10 +23,6 @@ class ProfileViewModel: ObservableObject {
         self.fetchUserEvents()
         self.fetchJoinedEvents()
         checkIfUserFollowsUser()
-    }
-    
-    var actionButtonTitle: String {
-        return user.isCurrentUser ? "Edit Profile" : user.doesFollow ?? false ? "Unfollow" : "Follow"
     }
     
     func events(forFilter filter: EventFilterViewModel) -> [Event] {
@@ -60,6 +58,44 @@ class ProfileViewModel: ObservableObject {
                 self.events[i].user = self.user
             }
         }
+    }
+    
+    func fetchFollowers() {
+        guard let uid = user.id else { return }
+        
+        service.fetchFollowers(forUid: uid) { users in
+            self.followers = users
+            print("DEBUG: (2) Followers\(self.followers)")
+            
+            for i in 0..<users.count {
+                let uid = users[i].id
+                
+                self.userService.fetchUser(withUid: uid!) { user in
+                    self.followers[i] = user
+                }
+            }
+            return
+        }
+        self.followers = []
+    }
+    
+    func fetchFollowing() {
+        guard let uid = user.id else { return }
+        
+        service.fetchFollowing(forUid: uid) { users in
+            self.following = users
+            print("DEBUG: (2) Following\(self.following)")
+            
+            for i in 0..<users.count {
+                let uid = users[i].id
+                
+                self.userService.fetchUser(withUid: uid!) { user in
+                    self.following[i] = user
+                }
+            }
+            return
+        }
+        self.following = []
     }
     
     func fetchJoinedEvents() {

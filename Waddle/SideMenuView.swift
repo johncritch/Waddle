@@ -31,7 +31,7 @@ struct SideMenuView: View {
                             .foregroundColor(.gray)
                     }
                     
-                    UserStatsView()
+                    UserStatsView(viewModel: ProfileViewModel(user: user))
                         .padding(.vertical)
                 }
                 .padding(.top, 50)
