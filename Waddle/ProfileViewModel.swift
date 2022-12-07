@@ -17,11 +17,12 @@ class ProfileViewModel: ObservableObject {
     private let service = EventService()
     private let userService = UserService()
     
-    
     init(user: User) {
         self.user = user
         self.fetchUserEvents()
         self.fetchJoinedEvents()
+        self.fetchFollowers()
+        self.fetchFollowing()
         checkIfUserFollowsUser()
     }
     
@@ -36,7 +37,7 @@ class ProfileViewModel: ObservableObject {
             return joinedEvents
         }
     }
-    
+
     func followUser() {
         service.followUser(user) {
             self.user.doesFollow = true
@@ -65,7 +66,7 @@ class ProfileViewModel: ObservableObject {
         
         service.fetchFollowers(forUid: uid) { users in
             self.followers = users
-            print("DEBUG: (2) Followers\(self.followers)")
+//            print("DEBUG: (2) Followers\(self.followers)")
             
             for i in 0..<users.count {
                 let uid = users[i].id
@@ -84,7 +85,7 @@ class ProfileViewModel: ObservableObject {
         
         service.fetchFollowing(forUid: uid) { users in
             self.following = users
-            print("DEBUG: (2) Following\(self.following)")
+//            print("DEBUG: (2) Following\(self.following)")
             
             for i in 0..<users.count {
                 let uid = users[i].id
@@ -103,7 +104,7 @@ class ProfileViewModel: ObservableObject {
         
         service.fetchJoinedEvents(forUid: uid) { events in
             self.joinedEvents = events
-            print("DEBUG: (2) Joined events\(self.joinedEvents)")
+//            print("DEBUG: (2) Joined events\(self.joinedEvents)")
             
             for i in 0..<events.count {
                 let uid = events[i].uid

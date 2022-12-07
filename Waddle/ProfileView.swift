@@ -101,6 +101,8 @@ extension ProfileView {
                     viewModel.user.doesFollow ?? false ?
                     viewModel.unfollowUser() :
                     viewModel.followUser()
+                    viewModel.fetchFollowing()
+                    viewModel.fetchFollowers()
                 } label: {
                     Text(viewModel.user.doesFollow ?? false ? "Following" : "Follow")
                         .font(.subheadline).bold()

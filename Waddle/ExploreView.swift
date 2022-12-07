@@ -31,6 +31,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
 struct ExploreView: View {
     @ObservedObject var viewModel = ExploreViewModel()
     @StateObject var locationManager = LocationManager()
+    @State var needsRefresh: Bool = false
     
     var body: some View {
         VStack {
@@ -38,11 +39,20 @@ struct ExploreView: View {
                 .padding()
             ScrollView {
                 LazyVStack {
-                    ForEach(viewModel.searchableUsers) { user in
-                        NavigationLink {
-                            ProfileView(user: user)
-                        } label: {
-                            UserRowView(user: user)
+                    if !viewModel.searchableEvents.isEmpty {
+                        Text("Events")
+                        ForEach(viewModel.searchableEvents) { event in
+                            EventsRowView(event: event, needsRefresh: $needsRefresh)
+                        }
+                    }
+                    if !viewModel.searchableUsers.isEmpty {
+                        Text("Users")
+                        ForEach(viewModel.searchableUsers) { user in
+                            NavigationLink {
+                                ProfileView(user: user)
+                            } label: {
+                                UserRowView(user: user)
+                            }
                         }
                     }
                 }

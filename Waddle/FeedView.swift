@@ -23,7 +23,7 @@ struct FeedView: View {
             ZStack(alignment: .bottomTrailing) {
                 RefreshableScrollView {
                     LazyVStack {
-                        ForEach(viewModel.events) { event in
+                        ForEach(viewModel.events(forFilter: self.selectedFilter)) { event in
                             EventsRowView(event: event, needsRefresh: $needsRefresh)
                         }
                     }

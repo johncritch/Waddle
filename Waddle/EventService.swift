@@ -237,7 +237,7 @@ extension EventService {
     func fetchJoinedEvents(forUid uid: String, completion: @escaping([Event]) -> Void) {
         var events = [Event]()
         
-        print("DEBUG: Joined Events: \(events)")
+//        print("DEBUG: Joined Events: \(events)")
         
         Firestore.firestore().collection("users")
             .document(uid)
@@ -253,17 +253,42 @@ extension EventService {
                         .getDocument { snapshot, _ in
                             guard let event = try? snapshot?.data(as: Event.self) else { return }
                             events.append(event)
-                            print("DEBUG: Joined Events: \(events)")
+//                            print("DEBUG: Joined Events: \(events)")
                             completion(events)
                         }
                 }
             }
     }
     
+    func fetchFollowingEvents(forUid uid: String, completion: @escaping([Event]) -> Void) {
+        var users = ["Non-Empty"]
+        
+        Firestore.firestore().collection("users")
+            .document(uid)
+            .collection("user-following")
+            .getDocuments { snapshot, _ in
+                guard let documents = snapshot?.documents else { return }
+                
+                documents.forEach { doc in
+                    users.append(doc.documentID)
+                }
+                
+                Firestore.firestore().collection("events")
+                    .whereField("uid", in: users)
+                    .getDocuments { snapshot, _ in
+                        guard let documents = snapshot?.documents else { return }
+                        
+                        let events = documents.compactMap({ try? $0.data(as: Event.self )})
+                        completion(events.sorted(by: { $0.timestamp.dateValue() > $1.timestamp.dateValue() }))
+                        print("DEBUG: Following Events \(events)")
+                    }
+            }
+    }
+    
     func fetchFollowers(forUid uid: String, completion: @escaping([User]) -> Void) {
         var users = [User]()
         
-        print("DEBUG: Followers: \(users)")
+//        print("DEBUG: Followers: \(users)")
         
         Firestore.firestore().collection("users")
             .document(uid)
@@ -279,7 +304,7 @@ extension EventService {
                         .getDocument { snapshot, _ in
                             guard let user = try? snapshot?.data(as: User.self) else { return }
                             users.append(user)
-                            print("DEBUG: Followers: \(users)")
+//                            print("DEBUG: Followers: \(users)")
                             completion(users)
                         }
                 }
@@ -289,7 +314,7 @@ extension EventService {
     func fetchFollowing(forUid uid: String, completion: @escaping([User]) -> Void) {
         var users = [User]()
         
-        print("DEBUG: Following: \(users)")
+//        print("DEBUG: Following: \(users)")
         
         Firestore.firestore().collection("users")
             .document(uid)
@@ -305,7 +330,7 @@ extension EventService {
                         .getDocument { snapshot, _ in
                             guard let user = try? snapshot?.data(as: User.self) else { return }
                             users.append(user)
-                            print("DEBUG: Following: \(users)")
+//                            print("DEBUG: Following: \(users)")
                             completion(users)
                         }
                 }

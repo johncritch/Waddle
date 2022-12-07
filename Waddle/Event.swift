@@ -22,7 +22,7 @@ struct Event: Identifiable, Decodable {
     let maxNumber: Int
     var tags: [Tag]
     var user: User?
-    var didJoin: Bool? = false
+    var didJoin: Bool?
 }
 
 //struct TagFromFire: Codable {

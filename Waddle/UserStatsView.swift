@@ -17,7 +17,7 @@ struct UserStatsView: View {
                 NavigationLink {
                     followingView
                 } label: {
-                    Text("807")
+                    Text(String(viewModel.following.count))
                         .font(.subheadline)
                         .bold()
                         .foregroundColor(.black)
@@ -26,14 +26,13 @@ struct UserStatsView: View {
                         .font(.caption)
                         .foregroundColor(.gray)
                 }
-                .navigationTitle("Following")
             }
             
             HStack (spacing: 4){
                 NavigationLink {
                     followersView
                 } label: {
-                    Text("6.9M")
+                    Text(String(viewModel.followers.count))
                         .font(.subheadline)
                         .bold()
                         .foregroundColor(.black)
@@ -42,7 +41,6 @@ struct UserStatsView: View {
                         .font(.caption)
                         .foregroundColor(.gray)
                 }
-                .navigationTitle("Followers")
             }
         }
         .onAppear {

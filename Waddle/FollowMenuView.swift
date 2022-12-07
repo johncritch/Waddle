@@ -12,9 +12,11 @@ struct FollowMenuView: View {
     var users: [User]
     
     var body: some View {
-        LazyVStack {
-            ForEach(users) { user in
-                UserRowView(user: user)
+        ScrollView {
+            LazyVStack {
+                ForEach(users) { user in
+                    UserRowView(user: user)
+                }
             }
         }
     }

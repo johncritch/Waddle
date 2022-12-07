@@ -9,6 +9,7 @@ import Foundation
 
 class ExploreViewModel: ObservableObject {
     @Published var users = [User]()
+    @Published var events = [Event]()
     @Published var searchText = ""
     
     var searchableUsers: [User] {
@@ -26,15 +27,61 @@ class ExploreViewModel: ObservableObject {
         }
     }
     
-    let service = UserService()
+    var searchableEvents: [Event] {
+        if searchText.isEmpty {
+            return []
+        } else {
+            let lowercasedQuery = searchText.lowercased()
+            
+            let filteredEvents = events.filter { event in
+                for tag in event.tags {
+                    if tag.title.lowercased().contains(lowercasedQuery) {
+                        return true
+                    }
+                }
+                if event.title.lowercased().contains(lowercasedQuery) ||
+                    event.city.lowercased().contains(lowercasedQuery) ||
+                    event.caption.lowercased().contains(lowercasedQuery) {
+                    return true
+                } else {
+                    if let eventUser = event.user {
+                        if eventUser.fullname.lowercased().contains(lowercasedQuery) {
+                            return true
+                        }
+                    }
+                }
+                return false
+            }
+            print("DEBUG: \(filteredEvents)")
+            return filteredEvents
+        }
+    }
+    
+    let userService = UserService()
+    let eventService = EventService()
     
     init() {
         fetchUsers()
+        fetchEvents()
     }
     
     func fetchUsers() {
-        service.fetchUsers { users in
+        userService.fetchUsers { users in
             self.users = users
+        }
+    }
+    
+    func fetchEvents() {
+        eventService.fetchEvents { events in
+            self.events = events
+            
+            for i in 0..<events.count {
+                let uid = events[i].uid
+                
+                self.userService.fetchUser(withUid: uid) { user in
+                    self.events[i].user = user
+                }
+            }
         }
     }
 }
