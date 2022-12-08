@@ -56,7 +56,7 @@ class FeedViewModel: ObservableObject {
                     self.followingEvents[i].user = user
                 }
             }
-            print("DEBUG: Following Events: \(self.followingEvents)")
+//            print("DEBUG: Following Events: \(self.followingEvents)")
         }
     }
 }

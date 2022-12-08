@@ -280,7 +280,7 @@ extension EventService {
                         
                         let events = documents.compactMap({ try? $0.data(as: Event.self )})
                         completion(events.sorted(by: { $0.timestamp.dateValue() > $1.timestamp.dateValue() }))
-                        print("DEBUG: Following Events \(events)")
+//                        print("DEBUG: Following Events \(events)")
                     }
             }
     }

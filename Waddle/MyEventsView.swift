@@ -6,10 +6,31 @@
 //
 
 import SwiftUI
+import RefreshableScrollView
 
 struct MyEventsView: View {
+    @ObservedObject var viewModel: MyEventsViewModel
+    
+    init() {
+        self.viewModel = MyEventsViewModel()
+    }
+    
     var body: some View {
-        Text("My Events View")
+        RefreshableScrollView {
+            LazyVStack {
+                ForEach(viewModel.joinedEvents) { event in
+                    ReducedEventsRowView(event: event)
+                }
+            }
+        }
+        .refreshable {
+              do {
+                // Sleep for 1 seconds
+                try await Task.sleep(nanoseconds: 1 * 1_000_000_000)
+              } catch {}
+              
+            viewModel.fetchJoinedEvents()
+        }
     }
 }
 

@@ -57,6 +57,14 @@
 		62333F16290CE7FF0021BED7 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 62333F15290CE7FF0021BED7 /* FirebaseRemoteConfig */; };
 		62333F18290CE7FF0021BED7 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 62333F17290CE7FF0021BED7 /* FirebaseRemoteConfigSwift */; };
 		62333F1A290CE7FF0021BED7 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 62333F19290CE7FF0021BED7 /* FirebaseStorageCombine-Community */; };
+		6237098329411CB3008E2917 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6237098229411CB3008E2917 /* Message.swift */; };
+		6237098529411D28008E2917 /* MessageBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6237098429411D28008E2917 /* MessageBubble.swift */; };
+		62370987294124FC008E2917 /* ReducedEventsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62370986294124FC008E2917 /* ReducedEventsRowView.swift */; };
+		6237098C29412893008E2917 /* ChatRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6237098B29412893008E2917 /* ChatRoomView.swift */; };
+		6237099029412995008E2917 /* MyEventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6237098F29412995008E2917 /* MyEventsViewModel.swift */; };
+		6237099229413861008E2917 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6237099129413861008E2917 /* Extensions.swift */; };
+		62370994294139D5008E2917 /* MessageField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62370993294139D5008E2917 /* MessageField.swift */; };
+		623709962941403E008E2917 /* MessagesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623709952941403E008E2917 /* MessagesService.swift */; };
 		6263A97D2907501200E139F1 /* FeedFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6263A97C2907501200E139F1 /* FeedFilterViewModel.swift */; };
 		627F354D290CF2A6007F1EB7 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627F354C290CF2A6007F1EB7 /* AuthViewModel.swift */; };
 		627F354F290DEF99007F1EB7 /* ProfilePhotoSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627F354E290DEF99007F1EB7 /* ProfilePhotoSelectorView.swift */; };
@@ -114,6 +122,14 @@
 		62333EDC290CBDE10021BED7 /* CustomInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputField.swift; sourceTree = "<group>"; };
 		62333EDF290CBF530021BED7 /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
 		62333EE1290CC44D0021BED7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		6237098229411CB3008E2917 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		6237098429411D28008E2917 /* MessageBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubble.swift; sourceTree = "<group>"; };
+		62370986294124FC008E2917 /* ReducedEventsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReducedEventsRowView.swift; sourceTree = "<group>"; };
+		6237098B29412893008E2917 /* ChatRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomView.swift; sourceTree = "<group>"; };
+		6237098F29412995008E2917 /* MyEventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventsViewModel.swift; sourceTree = "<group>"; };
+		6237099129413861008E2917 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		62370993294139D5008E2917 /* MessageField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageField.swift; sourceTree = "<group>"; };
+		623709952941403E008E2917 /* MessagesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesService.swift; sourceTree = "<group>"; };
 		6263A97C2907501200E139F1 /* FeedFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedFilterViewModel.swift; sourceTree = "<group>"; };
 		627F354C290CF2A6007F1EB7 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		627F354E290DEF99007F1EB7 /* ProfilePhotoSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoSelectorView.swift; sourceTree = "<group>"; };
@@ -198,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				62FCB1F82901F0C0002A7D11 /* EventsRowView.swift */,
+				62370986294124FC008E2917 /* ReducedEventsRowView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -305,6 +322,46 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		623709882941285F008E2917 /* EventChatRoom */ = {
+			isa = PBXGroup;
+			children = (
+				6237098A2941287B008E2917 /* Views */,
+				6237098929412874008E2917 /* ViewModels */,
+			);
+			name = EventChatRoom;
+			sourceTree = "<group>";
+		};
+		6237098929412874008E2917 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		6237098A2941287B008E2917 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6237098B29412893008E2917 /* ChatRoomView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		6237098D2941297A008E2917 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				62FCB2032901F661002A7D11 /* MyEventsView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		6237098E2941297F008E2917 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				6237098F29412995008E2917 /* MyEventsViewModel.swift */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
 		627F35502911E01E007F1EB7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,6 +416,7 @@
 		62FCB1ED2901EF73002A7D11 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				6237099129413861008E2917 /* Extensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -368,6 +426,7 @@
 			children = (
 				627F355729121DFD007F1EB7 /* User.swift */,
 				62323F9D29144B87001AC4D1 /* Event.swift */,
+				6237098229411CB3008E2917 /* Message.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -378,6 +437,7 @@
 				627F3553291215A0007F1EB7 /* ImageUploader.swift */,
 				627F355529121C8E007F1EB7 /* UserService.swift */,
 				62323F972914465D001AC4D1 /* EventService.swift */,
+				623709952941403E008E2917 /* MessagesService.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -392,6 +452,7 @@
 				62FCB2002901F619002A7D11 /* Profile */,
 				62FCB1FF2901F5F9002A7D11 /* Explore */,
 				62FCB1FE2901F5F7002A7D11 /* MyEvents */,
+				623709882941285F008E2917 /* EventChatRoom */,
 				62FCB1FD2901F5E8002A7D11 /* Notifcations */,
 				62FCB1FA2901F515002A7D11 /* MainTab */,
 				62FCB1F22901EFAD002A7D11 /* Feed */,
@@ -414,6 +475,8 @@
 				62BD84A12915EF8D009D0B0E /* TagView.swift */,
 				62BD84A3291AAFEB009D0B0E /* PullToRefreshView.swift */,
 				62BD84C8291B888D009D0B0E /* ScrollRefreshable.swift */,
+				6237098429411D28008E2917 /* MessageBubble.swift */,
+				62370993294139D5008E2917 /* MessageField.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -473,7 +536,8 @@
 		62FCB1FE2901F5F7002A7D11 /* MyEvents */ = {
 			isa = PBXGroup;
 			children = (
-				62FCB2032901F661002A7D11 /* MyEventsView.swift */,
+				6237098E2941297F008E2917 /* ViewModels */,
+				6237098D2941297A008E2917 /* Views */,
 			);
 			name = MyEvents;
 			sourceTree = "<group>";
@@ -650,6 +714,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				62323F9C29144A84001AC4D1 /* FeedViewModel.swift in Sources */,
+				623709962941403E008E2917 /* MessagesService.swift in Sources */,
+				6237099229413861008E2917 /* Extensions.swift in Sources */,
+				62370994294139D5008E2917 /* MessageField.swift in Sources */,
 				627F355629121C8E007F1EB7 /* UserService.swift in Sources */,
 				6283BBA1293FB5BB00BA527C /* FollowMenuView.swift in Sources */,
 				62323F9629143EBC001AC4D1 /* ProfileImage.swift in Sources */,
@@ -669,6 +736,7 @@
 				62FCB1E22901EF57002A7D11 /* ContentView.swift in Sources */,
 				62BD84C5291AF46B009D0B0E /* TagsMenuView.swift in Sources */,
 				6283BB9F293F291A00BA527C /* EditProfileView.swift in Sources */,
+				6237099029412995008E2917 /* MyEventsViewModel.swift in Sources */,
 				627F355829121DFD007F1EB7 /* User.swift in Sources */,
 				62FCB20D2901FB42002A7D11 /* ProfileView.swift in Sources */,
 				62FCB1F62901F00D002A7D11 /* FeedView.swift in Sources */,
@@ -676,6 +744,8 @@
 				62333ED0290CB3B20021BED7 /* NewEventView.swift in Sources */,
 				62FCB1F92901F0C0002A7D11 /* EventsRowView.swift in Sources */,
 				62FCB20F2901FFE1002A7D11 /* EventFilterViewModel.swift in Sources */,
+				6237098529411D28008E2917 /* MessageBubble.swift in Sources */,
+				6237098329411CB3008E2917 /* Message.swift in Sources */,
 				627F35522911E02D007F1EB7 /* ImagePicker.swift in Sources */,
 				62323FA429145A1E001AC4D1 /* EventRowViewModel.swift in Sources */,
 				62333EC9290CA27C0021BED7 /* SideMenuViewModel.swift in Sources */,
@@ -683,6 +753,7 @@
 				62FCB2022901F63C002A7D11 /* ExploreView.swift in Sources */,
 				62333EC5290CA25E0021BED7 /* SideMenuView.swift in Sources */,
 				62323FA029145540001AC4D1 /* ProfileViewModel.swift in Sources */,
+				62370987294124FC008E2917 /* ReducedEventsRowView.swift in Sources */,
 				62333EDB290CBA4A0021BED7 /* RoundedShape.swift in Sources */,
 				62FCB1FC2901F528002A7D11 /* MainTabView.swift in Sources */,
 				62BD84A4291AAFEB009D0B0E /* PullToRefreshView.swift in Sources */,
@@ -695,6 +766,7 @@
 				627F3554291215A0007F1EB7 /* ImageUploader.swift in Sources */,
 				62FCB2142902036E002A7D11 /* UserRowView.swift in Sources */,
 				62FCB2042901F661002A7D11 /* MyEventsView.swift in Sources */,
+				6237098C29412893008E2917 /* ChatRoomView.swift in Sources */,
 				62323FA7291478F9001AC4D1 /* TestingVariables.swift in Sources */,
 				62333ED9290CB9180021BED7 /* RegistrationView.swift in Sources */,
 			);

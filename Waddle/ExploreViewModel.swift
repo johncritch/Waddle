@@ -52,7 +52,7 @@ class ExploreViewModel: ObservableObject {
                 }
                 return false
             }
-            print("DEBUG: \(filteredEvents)")
+//            print("DEBUG: \(filteredEvents)")
             return filteredEvents
         }
     }
