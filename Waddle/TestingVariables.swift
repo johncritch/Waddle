@@ -9,6 +9,7 @@ import Foundation
 import Firebase
 
 struct TestingVariables {
+    
     let user = User(username: "johncritch",
                     first: "John",
                     last: "Critchlow",
@@ -21,7 +22,7 @@ struct TestingVariables {
                       uid: "KY3W8mKHt2Oyp5J7dH4RGOTyjPn1",
                       joined: 4,
                       city: "Provo",
-                      date: Date(),
+                      date: Date(timeIntervalSince1970: 1480366260),
                       limited: true,
                       privateEvent: false,
                       maxNumber: 8,

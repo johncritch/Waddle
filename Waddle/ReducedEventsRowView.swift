@@ -26,7 +26,7 @@ struct ReducedEventsRowView: View {
                 if let user = viewModel.event.user {
                     //Profile
                     HStack(alignment: .top, spacing: 10) {
-                        VStack (alignment: .leading) {
+                        VStack (alignment: .center) {
 //                            NavigationLink {
 //                                ProfileView(user: user)
 //                            } label: {
@@ -37,12 +37,13 @@ struct ReducedEventsRowView: View {
                             Text(viewModel.event.date.formatted(.dateTime.weekday()))
                                 .font(.subheadline)
                             Text(viewModel.event.date.formatted(.dateTime.day().month()))
-                                .multilineTextAlignment(.center)
                                 .font(.caption)
                             Spacer()
 
                         }
+                        .padding(.horizontal, -8)
                         .frame(width: 35)
+                        
                         Divider()
                         //User
                         VStack(alignment: .leading, spacing: 4) {
