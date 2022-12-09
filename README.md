@@ -18,6 +18,10 @@ As part of Project 2, I challenged myself to complete many features of the appli
 
 # Peer Feedback
 
+Aidan Napier - Roommate
+
+The app looked great! It was super easy to create an account and get going. It was also really easy to schedule and customize an event. When adding tags, it would be helpful to have an exit button. I had a great experience and it was super easy to navigate wherever I wanted to go. 
+
 # Grading
 
 Personly this project was a real challenge for me. I knew the requirements I wanted to inlcude but had no idea if I was able to implement them all within the timeframe. I'm proud to say I was able to complete all of them except for the notifications and loading animations. For notifications I would have had to purchase the developer account which I will eventually, but not right now. The loading animation was something I thought would be fun, but in order to complete it I have to rework how I load data from Firebase and would have to pay extra for more functionality.
