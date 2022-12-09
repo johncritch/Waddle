@@ -23,7 +23,7 @@ class MyEventsViewModel: ObservableObject {
         
         service.fetchJoinedEvents(forUid: uid) { events in
             self.joinedEvents = events
-            print("DEBUG: \(self.joinedEvents)")
+//            print("DEBUG: \(self.joinedEvents)")
             
             for i in 0..<events.count {
                 let uid = events[i].uid
@@ -32,6 +32,20 @@ class MyEventsViewModel: ObservableObject {
                     self.joinedEvents[i].user = user
                 }
             }
+            self.service.fetchEvents(forUid: uid) { userEvents in
+                
+                self.joinedEvents.append(contentsOf: userEvents)
+                
+                for i in 0..<events.count + userEvents.count {
+                    let uid = self.joinedEvents[i].uid
+                    
+                    self.userService.fetchUser(withUid: uid) { user in
+                        self.joinedEvents[i].user = user
+                    }
+                }
+            }
+            
+            
             return
         }
         self.joinedEvents = []

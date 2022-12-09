@@ -26,7 +26,7 @@ The app looked great! It was super easy to create an account and get going. It w
 
 Personly this project was a real challenge for me. I knew the requirements I wanted to inlcude but had no idea if I was able to implement them all within the timeframe. I'm proud to say I was able to complete all of them except for the notifications and loading animations. For notifications I would have had to purchase the developer account which I will eventually, but not right now. The loading animation was something I thought would be fun, but in order to complete it I have to rework how I load data from Firebase and would have to pay extra for more functionality.
 
-I feel like I completed the project to my best ability without having to spend more. I put in countless hours throughout the past couple weeks to build an application that I am truly proud of. It's not entirely finished, but I've had so much fun and am excited to keep working on it.
+I feel like I completed the project to my best ability without having to spend more. I put in countless hours throughout the past couple weeks to build an application that I am truly proud of. It's not entirely finished, so you'll run into area that take you no where quite yet. I've had so much fun and am excited to keep working on it.
 
 Definitely A grade work.
 

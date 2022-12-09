@@ -35,6 +35,7 @@ struct FeedView: View {
                       } catch {}
                       
                     viewModel.fetchEvents()
+                    viewModel.fetchFollowingEvents()
                     }
                 
                 Button {

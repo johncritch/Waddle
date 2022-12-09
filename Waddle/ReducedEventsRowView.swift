@@ -56,24 +56,26 @@ struct ReducedEventsRowView: View {
                                         .font(.caption)
                                         .foregroundColor(.blue)
                                 }
-                                
                                 Text("@\(user.username)")
                                     .foregroundColor(.gray)
                                     .font(.caption)
                                 
-                                Text("2w")
-                                    .foregroundColor(.gray)
-                                    .font(.caption)
+//                                Text("2w")
+//                                    .foregroundColor(.gray)
+//                                    .font(.caption)
+                                Spacer()
                             }
                             //Event Details
                             Text(viewModel.event.title)
                                 .font(.headline)
-                                .multilineTextAlignment(.leading)
                             
                             Text(viewModel.event.caption)
                                 .font(.subheadline)
-                                .multilineTextAlignment(.leading)
+                            
                         }
+                        .multilineTextAlignment(.center)
+                        .frame(maxWidth: .infinity)
+                        
                         Divider()
                         VStack (alignment: .leading) {
                             Spacer()
